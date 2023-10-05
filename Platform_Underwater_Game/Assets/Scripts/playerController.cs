@@ -15,13 +15,22 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5f;
     private float originalSpeed;
 
+    //used for movement (WASD)
     private float XAxis;
     private float YAxis;
 
     //some variables for keys pressed
     private bool sprinting = false;
     private bool isGrounded = true;
- 
+    private bool strafeLeftCheck = false;
+    private bool strafeRightCheck = false;
+
+
+    //rotation variables
+    //set angular velocity to a default of 0, so no rotation unless function called
+    Vector3 bodyAngleVelocity = new Vector3(0f,0f,0f);
+    private bool rotateLeftCheck = false;
+    private bool rotateRightCheck = false;
 
     void Start()
     {
@@ -33,7 +42,7 @@ public class PlayerController : MonoBehaviour
         body.drag = 2f;
         body.useGravity = true;
 
-        //Lock rotation for now
+        //Lock rotation for now to prevent unwanted movement
         body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
 
         //set in the unity editor
@@ -72,6 +81,80 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //strafe left when left arrow key pressed
+    private void OnStrafeLeft()
+    {
+        if(!strafeLeftCheck)
+        {
+            strafeLeftCheck = true;
+
+            //Strafe left by adding body force and impulsivity for realistic effect
+            body.AddForce(Vector3.left * 10, ForceMode.Impulse);
+        }
+
+        strafeLeftCheck = false;
+    }
+
+    //strafe right when left arrow key pressed
+    private void OnStrafeRight()
+    {
+        if (!strafeRightCheck)
+        {
+            strafeRightCheck = true;
+
+            //Strafe left by adding body force and impulsivity for realistic effect
+            body.AddForce(Vector3.right * 10, ForceMode.Impulse);
+        }
+
+        strafeRightCheck = false;
+    }
+
+    private void OnRotateLeft()
+    {
+        //if button is being pressed rotate - can't be used at the same time as rotate right
+        if (!rotateLeftCheck && !rotateRightCheck)
+        {
+            //unlock y rotation
+            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            rotateLeftCheck = true;
+
+            //set angular velocity of body (rotating around Y axis, -100 degrees/second for left)
+            bodyAngleVelocity = new Vector3(0f, -100f, 0f);
+        }
+
+        //otherwise don't rotate
+        else
+        {
+            //relock y rotation to prevent unwanted movement
+            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+            bodyAngleVelocity = new Vector3(0f, 0f, 0f);
+            rotateLeftCheck = false;
+        }
+    }
+
+    private void OnRotateRight()
+    {
+        //if button is being pressed rotate - can't be used at the same time as rotate left
+        if (!rotateRightCheck && !rotateLeftCheck)
+        {
+            //unlock y rotation
+            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            rotateRightCheck = true;
+
+            //set angular velocity of body (rotating around Y axis, 100 degrees/second for right)
+            bodyAngleVelocity = new Vector3(0f, 100f, 0f);
+        }
+
+        //otherwise don't rotate
+        else
+        {
+            //relock y rotation to prevent unwanted movement
+            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+            bodyAngleVelocity = new Vector3(0f, 0f, 0f);
+            rotateRightCheck = false;
+        }
+    }
+
     //when space pressed to jump
     private void OnJump()
     {
@@ -100,10 +183,24 @@ public class PlayerController : MonoBehaviour
         Debug.Log("XAxis: " + XAxis);
         Debug.Log("YAxis: " + YAxis);
         Debug.Log("Player Position: " + transform.position);
-        //3D Vector for 3D object
-        Vector3 movement = new Vector3(XAxis, 0f, YAxis);
-        //add movement, speed to player object as it moves
-        body.AddForce(movement * speed);
+
+        //calculate the movement vector based on the rotation
+        //this way player will move in direction of any rotation
+        Vector3 forwardDirection = transform.forward * YAxis;
+        Vector3 rightDirection = transform.right * XAxis;
+        //we normalise to get only the direction, no magnitude
+        Vector3 directionOfMovement = (forwardDirection + rightDirection).normalized;
+
+        //add force (velocity) for movement
+        body.AddForce(directionOfMovement * speed);
+
+
+        //rotation code - should be 0 rotation unless button pressed
+        //a quaternion represents a rotation
+        Quaternion deltaRotation = Quaternion.Euler(bodyAngleVelocity * Time.fixedDeltaTime);
+        body.MoveRotation(body.rotation * deltaRotation);
+
+        //more debug logs
         Debug.Log("Player Position After Movement: " + transform.position);
         Debug.Log("Speed1" + speed);
     }
