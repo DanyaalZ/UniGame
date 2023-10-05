@@ -8,26 +8,39 @@ public class PlayerController : MonoBehaviour
 {
     //for physics
     private Rigidbody body;
+   
 
     //variables for movement (speed, x, y movement)
-    public float speed = 0;
+    public float speed = 20f;
+    public float jumpForce = 5f;
     private float originalSpeed;
 
     private float XAxis;
     private float YAxis;
 
+    //some variables for keys pressed
     private bool sprinting = false;
-    private bool jumping = false;
+    private bool isGrounded = true;
+ 
 
     void Start()
     {
-        //set in the unity editor
-        originalSpeed = speed;
-
         //on start, assign body for player object (in code)
         body = GetComponent<Rigidbody>();
+
+        //Set drag, gravity
+        //drag used for water resistance
+        body.drag = 2f;
+        body.useGravity = true;
+
+        //Lock rotation for now
+        body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+
+        //set in the unity editor
+        originalSpeed = speed;
     }
 
+    //WASD to move
     private void OnMove(InputValue movementAmount)
     {
         //create vectors for player movements
@@ -38,6 +51,7 @@ public class PlayerController : MonoBehaviour
         YAxis = movementVector.y;
     }
 
+    //left shift to sprint
     private void OnSprint()
     {
         //if not already sprinting, start
@@ -46,7 +60,7 @@ public class PlayerController : MonoBehaviour
             sprinting = true;
             //make sure speed has been reset
             originalSpeed = speed;
-            //increase speed by factor of 2
+            //increase speed 2
             speed *= 2f; 
         }
 
@@ -58,25 +72,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //when space pressed to jump
     private void OnJump()
     {
-        if(!jumping)
+        if (isGrounded)
         {
-            jumping = true;
-            YAxis += 10;
-            System.Threading.Thread.Sleep(1000);
-            YAxis -= 10;
+            //Add jump force, impulse used as it simulates a jump properly
+            body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
         }
+    }
 
-        else
+    //check for ground collisions 
+    private void OnCollisionEnter(Collision collision)
+    {
+        //if player collides with floor, they are on the ground (used for jump)
+        if (collision.gameObject.CompareTag("Floor"))
         {
-            jumping = true;
+            isGrounded = true;
         }
     }
 
     // Fixed intervals of updates
     void FixedUpdate()
     {
+        //remove debugs after prototype
         Debug.Log("XAxis: " + XAxis);
         Debug.Log("YAxis: " + YAxis);
         Debug.Log("Player Position: " + transform.position);

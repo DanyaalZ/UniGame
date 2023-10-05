@@ -295,7 +295,7 @@
                 {
                     "name": "",
                     "id": "eb77e22c-a528-4a16-b4b0-da3b30daa6c8",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "Hold",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -305,8 +305,8 @@
                 },
                 {
                     "name": "",
-                    "id": "ea063e4f-689a-4de1-98d5-c90d4fc396ac",
-                    "path": "<Keyboard>/j",
+                    "id": "06d504fd-565e-4fdc-90bf-f9a7718ad4fc",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
