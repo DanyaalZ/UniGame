@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true;
     private bool strafeLeftCheck = false;
     private bool strafeRightCheck = false;
-
+    public bool crouchCheck = false;
 
     //rotation variables
     //set angular velocity to a default of 0, so no rotation unless function called
@@ -107,6 +107,41 @@ public class PlayerController : MonoBehaviour
         }
 
         strafeRightCheck = false;
+    }
+    private void OnCrouch()
+    {
+        //check if player is already crouched and not jumping
+        if (!crouchCheck && isGrounded)
+        {
+            crouchCheck = true;
+
+            //force down force
+            body.AddForce(Vector3.down * 1, ForceMode.Impulse);
+
+            //allow player to go lower by disabling collider
+            GetComponent<Collider>().enabled = false;
+
+            //make sure player doesnt fall through platforms
+            body.useGravity = false;
+        }
+        else
+        {
+            //again not allowed while jumping
+            if(isGrounded)
+            {
+                //uncrouch
+                crouchCheck = false;
+
+                //put player back in previous position
+                body.AddForce(Vector3.up * 1, ForceMode.Impulse);
+
+                //reenable collider to allow for collisions
+                GetComponent<Collider>().enabled = true;
+
+                //enable gravity when standing up
+                body.useGravity = true;
+            }
+        }
     }
 
     private void OnRotateLeft()
