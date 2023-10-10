@@ -2,12 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using TMPro;
 using System.Threading;
 
 public class PlayerController : MonoBehaviour
 {
     //for physics
     private Rigidbody body;
+
+    //variable text
+    public TMP_Text sprintText;
+    public SprintText sprintTextUpdater;
+
+    //tutorial text
+    public TMP_Text tutorialText1;
    
 
     //variables for movement (speed, x, y movement)
@@ -24,7 +32,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true;
     private bool strafeLeftCheck = false;
     private bool strafeRightCheck = false;
-    public bool crouchCheck = false;
+    private bool crouchCheck = false;
+    private bool gravityCheck = false;
 
     //rotation variables
     //set angular velocity to a default of 0, so no rotation unless function called
@@ -36,6 +45,13 @@ public class PlayerController : MonoBehaviour
     {
         //on start, assign body for player object (in code)
         body = GetComponent<Rigidbody>();
+
+        //sprint on/off text
+        sprintText = GetComponent<TMP_Text>();
+
+        //coinsText
+
+        //gravityText
 
         //Set drag, gravity
         //drag used for water resistance
@@ -67,6 +83,7 @@ public class PlayerController : MonoBehaviour
         if (!sprinting)
         {
             sprinting = true;
+            sprintTextUpdater.updateText(true);
             //make sure speed has been reset
             originalSpeed = speed;
             //increase speed 2
@@ -77,6 +94,7 @@ public class PlayerController : MonoBehaviour
         {
             // Stop sprinting
             sprinting = false;
+            sprintTextUpdater.updateText(false);
             speed = originalSpeed;
         }
     }
@@ -193,15 +211,29 @@ public class PlayerController : MonoBehaviour
     //when space pressed to jump
     private void OnJump()
     {
-        if (isGrounded)
+        //Add jump force, impulse used as it simulates a jump properly
+        body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void OnGCheck()
+    {
+        if (!gravityCheck)
         {
-            //Add jump force, impulse used as it simulates a jump properly
-            body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
+            gravityCheck = true;
+            //sprintTextUpdater.updateText(true);
+            body.useGravity = true;
+        }
+
+        else
+        {
+            gravityCheck = false;
+            body.useGravity = false;
+            // sprintTextUpdater.updateText(true);
         }
     }
 
-    //check for ground collisions 
+
+    //for collisions
     private void OnCollisionEnter(Collision collision)
     {
         //if player collides with floor, they are on the ground (used for jump)
@@ -209,6 +241,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+
     }
 
     // Fixed intervals of updates
