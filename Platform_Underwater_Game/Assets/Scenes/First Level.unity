@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.19525018, g: 0.09739173, b: 0.11902071, a: 1}
+  m_IndirectSpecularColor: {r: 0.19521803, g: 0.09740447, b: 0.118993826, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -643,6 +643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639434603}
   - component: {fileID: 639434602}
+  - component: {fileID: 639434608}
   - component: {fileID: 639434601}
   - component: {fileID: 639434600}
   - component: {fileID: 639434605}
@@ -815,9 +816,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bf58966d62fa4469883f3770e27e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprintText: {fileID: 206467522}
+  sprintTextUpdater: {fileID: 639434608}
+  tutorialText1: {fileID: 0}
   speed: 20
   jumpForce: 10
-  crouchCheck: 0
+--- !u!114 &639434608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639434599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7478ae2b91bb36a46a462c3b336aa460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprintText: {fileID: 206467522}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
