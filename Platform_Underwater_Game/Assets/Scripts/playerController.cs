@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
     }
-
+    /*
     private void OnGCheck()
     {
         if (!gravityCheck)
@@ -229,6 +229,7 @@ public class PlayerController : MonoBehaviour
             gravityCheck = true;
             gravityTextUpdater.updateText(false);
             jumpForce *= 2;
+            
         }
 
         else
@@ -237,7 +238,32 @@ public class PlayerController : MonoBehaviour
             jumpForce /= 2;
             gravityTextUpdater.updateText(true);
         }
+    }*/
+
+    // Allows the jumpforce to be increased depending on gravity level
+    private void OnGCheck()
+    {
+        while (true)
+        {
+            if (!gravityCheck)
+            {
+                gravityCheck = true;
+                gravityTextUpdater.updateText(false);
+                jumpForce *= 2;
+            }
+            else
+            {
+                gravityCheck = false;
+                jumpForce /= 2;
+                gravityTextUpdater.updateText(true);
+            }
+
+            // break will prevent an infinite loop, so the jumpforce strength doesnt increase in a lopp
+            break;
+        }
     }
+
+
 
 
     //for collisions
