@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     //variable text
     public TMP_Text sprintText;
     public SprintText sprintTextUpdater;
+    public TMP_Text gravityText;
+    public GravityText gravityTextUpdater;
 
     //tutorial text
     public TMP_Text tutorialText1;
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
         //sprint on/off text
         sprintText = GetComponent<TMP_Text>();
+        gravityText = GetComponent<TMP_Text>();
 
         //coinsText
 
@@ -212,7 +215,11 @@ public class PlayerController : MonoBehaviour
     private void OnJump()
     {
         //Add jump force, impulse used as it simulates a jump properly
-        body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        if (isGrounded)
+        {
+            body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
     }
 
     private void OnGCheck()
@@ -220,15 +227,15 @@ public class PlayerController : MonoBehaviour
         if (!gravityCheck)
         {
             gravityCheck = true;
-            //sprintTextUpdater.updateText(true);
-            body.useGravity = true;
+            gravityTextUpdater.updateText(false);
+            jumpForce *= 2;
         }
 
         else
         {
             gravityCheck = false;
-            body.useGravity = false;
-            // sprintTextUpdater.updateText(true);
+            jumpForce /= 2;
+            gravityTextUpdater.updateText(true);
         }
     }
 
