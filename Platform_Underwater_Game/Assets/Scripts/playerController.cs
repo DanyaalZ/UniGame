@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
     }
-    
+
     private void OnGCheck()
     {
         if (!gravityCheck)
@@ -229,7 +229,6 @@ public class PlayerController : MonoBehaviour
             gravityCheck = true;
             gravityTextUpdater.updateText(false);
             jumpForce *= 2;
-            
         }
 
         else
