@@ -164,52 +164,30 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    private void OnRotateLeft()
+//allows user to look left and right relevant to movement of the mouse
+    private void Update()
     {
-        //if button is being pressed rotate - can't be used at the same time as rotate right
-        if (!rotateLeftCheck && !rotateRightCheck)
+        //gets input for the mouse 
+        float mouseX = Input.GetAxis("Mouse X");
+
+        //checks location of mouse
+        if (mouseX != 0f)
         {
-            //unlock y rotation
+            //allows it to rotate left
             body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            rotateLeftCheck = true;
 
-            //set angular velocity of body (rotating around Y axis, -100 degrees/second for left)
-            bodyAngleVelocity = new Vector3(0f, -100f, 0f);
+            //movement of player based on speed of mouse move 
+            float rotationSpeed = 100f; //choose speed 
+            bodyAngleVelocity = new Vector3(0f, mouseX * rotationSpeed, 0f);
         }
-
-        //otherwise don't rotate
         else
         {
-            //relock y rotation to prevent unwanted movement
+            //stops movement if there is no mouse movement 
             body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-            bodyAngleVelocity = new Vector3(0f, 0f, 0f);
-            rotateLeftCheck = false;
+            bodyAngleVelocity = Vector3.zero;
         }
     }
 
-    private void OnRotateRight()
-    {
-        //if button is being pressed rotate - can't be used at the same time as rotate left
-        if (!rotateRightCheck && !rotateLeftCheck)
-        {
-            //unlock y rotation
-            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            rotateRightCheck = true;
-
-            //set angular velocity of body (rotating around Y axis, 100 degrees/second for right)
-            bodyAngleVelocity = new Vector3(0f, 100f, 0f);
-        }
-
-        //otherwise don't rotate
-        else
-        {
-            //relock y rotation to prevent unwanted movement
-            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-            bodyAngleVelocity = new Vector3(0f, 0f, 0f);
-            rotateRightCheck = false;
-        }
-    }
 
     //when space pressed to jump
     private void OnJump()
