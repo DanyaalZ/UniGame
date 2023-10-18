@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
             body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
             //movement of player based on speed of mouse move 
-            float rotationSpeed = 100f; //choose speed 
+            float rotationSpeed = 500f; //choose speed 
             bodyAngleVelocity = new Vector3(0f, mouseX * rotationSpeed, 0f);
         }
         else
