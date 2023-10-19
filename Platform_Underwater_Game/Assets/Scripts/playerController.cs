@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public SprintText sprintTextUpdater;
     public TMP_Text gravityText;
     public GravityText gravityTextUpdater;
+  
 
     //tutorial text
     public TMP_Text tutorialText1;
@@ -50,11 +51,10 @@ public class PlayerController : MonoBehaviour
 
         //sprint on/off text
         sprintText = GetComponent<TMP_Text>();
+
+
+        //gravityText on.off
         gravityText = GetComponent<TMP_Text>();
-
-        //coinsText
-
-        //gravityText
 
         //Set drag, gravity
         //drag used for water resistance
@@ -226,7 +226,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
-
     }
 
     // Fixed intervals of updates

@@ -9,7 +9,7 @@ public class GravityText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        updateText(false);
+        updateText(true);
     }
 
     public void updateText(bool isGravity)
