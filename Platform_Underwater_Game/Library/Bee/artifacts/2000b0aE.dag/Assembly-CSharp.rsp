@@ -345,6 +345,8 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.1.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Controls.cs"
 "Assets/MainMenu.cs"
+"Assets/Scripts/coinCollision.cs"
+"Assets/Scripts/CoinText.cs"
 "Assets/Scripts/GravityText.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/RemoveText.cs"

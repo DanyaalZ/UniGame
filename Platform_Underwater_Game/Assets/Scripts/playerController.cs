@@ -16,11 +16,6 @@ public class PlayerController : MonoBehaviour
     public TMP_Text gravityText;
     public GravityText gravityTextUpdater;
   
-
-    //tutorial text
-    public TMP_Text tutorialText1;
-   
-
     //variables for movement (speed, x, y movement)
     public float speed = 20f;
     public float jumpForce = 5f;
