@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
     private bool rotateLeftCheck = false;
     private bool rotateRightCheck = false;
 
+    //Reference to MouseLook Class
+    private MouseLook mouseLook;
+
     void Start()
     {
         //on start, assign body for player object (in code)
@@ -61,6 +64,12 @@ public class PlayerController : MonoBehaviour
 
         //set in the unity editor
         originalSpeed = speed;
+
+        // Lock the cursor centre of screen
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        mouseLook = GetComponentInChildren<MouseLook>();
     }
 
     //WASD to move
@@ -159,8 +168,45 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    /* previous mouse controls
 //allows user to look left and right relevant to movement of the mouse
     private void Update()
+    {
+        //gets input for the mouse 
+        float mouseX = Input.GetAxis("Mouse X");
+
+        //checks location of mouse
+        if (mouseX != 0f)
+        {
+            //allows it to rotate left
+            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+            //movement of player based on speed of mouse move 
+            float rotationSpeed = 500f; //choose speed 
+            bodyAngleVelocity = new Vector3(0f, mouseX * rotationSpeed, 0f);
+        }
+        else
+        {
+            //stops movement if there is no mouse movement 
+            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+            bodyAngleVelocity = Vector3.zero;
+        }
+    }*/
+
+    private void Update()
+    {
+        // Check if the cursor is locked (hidden)
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            // The cursor is locked, so the camera rotation is active
+            HandleMouseInput();
+        }
+        // You can add additional checks here for other input conditions if needed
+    }
+
+
+    // Handles mouse input to lock the mouse onto middle of screen
+    private void HandleMouseInput()
     {
         //gets input for the mouse 
         float mouseX = Input.GetAxis("Mouse X");
@@ -222,7 +268,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
-
+    
     // Fixed intervals of updates
     void FixedUpdate()
     {
@@ -251,4 +297,5 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player Position After Movement: " + transform.position);
         Debug.Log("Speed1" + speed);
     }
+   
 }
