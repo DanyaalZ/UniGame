@@ -260,6 +260,7 @@ public class PlayerController : MonoBehaviour
 
 
     //for collisions
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         //if player collides with floor, they are on the ground (used for jump)
@@ -267,8 +268,19 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+    }*/
+
+    //For collisions against objects
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Check if the collision object is a platform or the floor
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Platform"))
+        {
+            // sets the player to grounded
+            isGrounded = true;
+        }
     }
-    
+
     // Fixed intervals of updates
     void FixedUpdate()
     {
