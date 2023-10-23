@@ -11,6 +11,9 @@ public class coinCollision : MonoBehaviour
     //import updater script
     public coinText coinTextUpdater;
 
+    //amount to update coins
+    public int amountUpdate;
+
     //get gameobject for visisibility on/off (coin)
     public GameObject coinVisibility;
     
@@ -24,8 +27,8 @@ public class coinCollision : MonoBehaviour
         //when object touched by player, remove it (set to invisible)
         coinVisibility.SetActive(false);
 
-        //increase coins by 1 in this instance as only coin
-        coinTextUpdater.updateText(1);
+        //increase coins by amount set - variable based on treasure type
+        coinTextUpdater.updateText(amountUpdate);
 
     }
 }

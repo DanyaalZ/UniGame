@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -529,8 +529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 66394298}
-  updateAmount: 1
   coinTextUpdater: {fileID: 288208129}
+  amountUpdate: 1
   coinVisibility: {fileID: 288208127}
 --- !u!114 &288208129
 MonoBehaviour:
@@ -1878,7 +1878,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997586938}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.1, y: 2, z: 35.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1919,8 +1919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 66394298}
-  updateAmount: 1
   coinTextUpdater: {fileID: 1006720913}
+  amountUpdate: 1
   coinVisibility: {fileID: 1006720911}
 --- !u!114 &1006720913
 MonoBehaviour:
@@ -2055,8 +2055,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 66394298}
-  updateAmount: 1
   coinTextUpdater: {fileID: 1010233215}
+  amountUpdate: 1
   coinVisibility: {fileID: 1010233209}
 --- !u!135 &1010233211
 SphereCollider:
@@ -2401,6 +2401,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 827942694}
+  - {fileID: 1869950198}
   m_Father: {fileID: 639434603}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3266,8 +3267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 66394298}
-  updateAmount: 1
   coinTextUpdater: {fileID: 1817513545}
+  amountUpdate: 1
   coinVisibility: {fileID: 1817513543}
 --- !u!114 &1817513545
 MonoBehaviour:
@@ -3429,12 +3430,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869950195}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960, y: -540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1135461425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1889797350
 GameObject:
@@ -3784,7 +3785,7 @@ GameObject:
   - component: {fileID: 1942009319}
   - component: {fileID: 1942009318}
   m_Layer: 0
-  m_Name: Coin (4)
+  m_Name: Treasure item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3803,8 +3804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 66394298}
-  updateAmount: 6
   coinTextUpdater: {fileID: 1942009319}
+  amountUpdate: 6
   coinVisibility: {fileID: 1942009317}
 --- !u!114 &1942009319
 MonoBehaviour:
@@ -4245,18 +4246,17 @@ SceneRoots:
   - {fileID: 1198818883}
   - {fileID: 1137162543}
   - {fileID: 1505458319}
-  - {fileID: 858815527}
-  - {fileID: 997586943}
   - {fileID: 1889797353}
   - {fileID: 1010233214}
   - {fileID: 1817513549}
+  - {fileID: 1006720917}
+  - {fileID: 288208133}
+  - {fileID: 1942009323}
+  - {fileID: 2137364299}
+  - {fileID: 997586943}
+  - {fileID: 858815527}
   - {fileID: 103867402}
   - {fileID: 1100503540}
   - {fileID: 831518950}
-  - {fileID: 288208133}
-  - {fileID: 1942009323}
-  - {fileID: 1006720917}
   - {fileID: 2012206835}
   - {fileID: 357155022}
-  - {fileID: 2137364299}
-  - {fileID: 1869950198}

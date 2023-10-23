@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Platform_Space_Game</title>
+    <title>Unity WebGL Player | Platform_Underwater_Game</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Platform_Space_Game</div>
+        <div id="unity-build-title">Platform_Underwater_Game</div>
       </div>
     </div>
     <script>
@@ -57,14 +57,14 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/GameBuild.loader.js";
+      var loaderUrl = buildUrl + "/MultiPlatform Gaming.loader.js";
       var config = {
-        dataUrl: buildUrl + "/GameBuild.data.gz",
-        frameworkUrl: buildUrl + "/GameBuild.framework.js.gz",
-        codeUrl: buildUrl + "/GameBuild.wasm.gz",
+        dataUrl: buildUrl + "/MultiPlatform Gaming.data.unityweb",
+        frameworkUrl: buildUrl + "/MultiPlatform Gaming.framework.js.unityweb",
+        codeUrl: buildUrl + "/MultiPlatform Gaming.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Company",
-        productName: "Platform_Space_Game",
+        productName: "Platform_Underwater_Game",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
@@ -98,7 +98,6 @@
         canvas.style.height = "600px";
       }
 
-      canvas.style.background = "url('" + buildUrl + "/GameBuild.jpg') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
