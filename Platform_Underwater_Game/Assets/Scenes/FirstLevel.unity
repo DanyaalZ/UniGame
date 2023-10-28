@@ -922,6 +922,7 @@ GameObject:
   - component: {fileID: 639434601}
   - component: {fileID: 639434600}
   - component: {fileID: 639434605}
+  - component: {fileID: 639434612}
   - component: {fileID: 639434607}
   - component: {fileID: 639434606}
   - component: {fileID: 639434610}
@@ -1099,6 +1100,8 @@ MonoBehaviour:
   sprintText: {fileID: 206467522}
   sprintTextUpdater: {fileID: 639434608}
   gravityText: {fileID: 418269313}
+  liveText: {fileID: 1568107416}
+  livesTextUpdater: {fileID: 639434612}
   gravityTextUpdater: {fileID: 639434609}
   speed: 20
   jumpForce: 10
@@ -1155,6 +1158,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: -10
+--- !u!114 &639434612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639434599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60e225ddb7afe4ba745adc543a14bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 1568107416}
+  lives: 3
 --- !u!1 &667383428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,7 +3150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lives: 5'
+  m_text: 'Lives: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3903,6 +3920,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenename: SecondLevel
+  coinText: {fileID: 66394298}
+  alert: {fileID: 1135461429}
 --- !u!1 &1942009317
 GameObject:
   m_ObjectHideFlags: 0

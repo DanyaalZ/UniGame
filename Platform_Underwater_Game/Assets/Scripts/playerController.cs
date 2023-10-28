@@ -10,11 +10,22 @@ public class PlayerController : MonoBehaviour
     //for physics
     private Rigidbody body;
 
+    //player can only fall off the map 3 times (3 lives)
+    private int fallCounter;
+    
+    //A lock to ensure lives decrement only one at a time
+    private bool isDecrementingLife = false;
+
     //variable text
     public TMP_Text sprintText;
     public SprintText sprintTextUpdater;
     public TMP_Text gravityText;
+    public TMP_Text liveText;
+
+    //updater for lives text
+    public LivesText livesTextUpdater;
     public GravityText gravityTextUpdater;
+
   
     //variables for movement (speed, x, y movement)
     public float speed = 20f;
@@ -44,6 +55,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        //set fall counter initially to 0
+        fallCounter = 0;
+
         //on start, assign body for player object (in code)
         body = GetComponent<Rigidbody>();
 
@@ -53,6 +67,9 @@ public class PlayerController : MonoBehaviour
 
         //gravityText on.off
         gravityText = GetComponent<TMP_Text>();
+
+        liveText = GetComponent<TMP_Text>();
+
 
         //Set drag, gravity
         //drag used for water resistance
@@ -168,30 +185,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    /* previous mouse controls
-//allows user to look left and right relevant to movement of the mouse
-    private void Update()
-    {
-        //gets input for the mouse 
-        float mouseX = Input.GetAxis("Mouse X");
-
-        //checks location of mouse
-        if (mouseX != 0f)
-        {
-            //allows it to rotate left
-            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
-            //movement of player based on speed of mouse move 
-            float rotationSpeed = 500f; //choose speed 
-            bodyAngleVelocity = new Vector3(0f, mouseX * rotationSpeed, 0f);
-        }
-        else
-        {
-            //stops movement if there is no mouse movement 
-            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-            bodyAngleVelocity = Vector3.zero;
-        }
-    }*/
+    
 
     private void Update()
     {
@@ -258,18 +252,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    //for collisions
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        //if player collides with floor, they are on the ground (used for jump)
-        if (collision.gameObject.CompareTag("Floor"))
-        {
-            isGrounded = true;
-        }
-    }*/
-
     //For collisions against objects
     private void OnCollisionEnter(Collision collision)
     {
@@ -278,6 +260,12 @@ public class PlayerController : MonoBehaviour
         {
             // sets the player to grounded
             isGrounded = true;
+        }
+
+        //if player touching an enemy decrement lives by one
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            livesTextUpdater.decrementLives();
         }
     }
 
@@ -308,6 +296,27 @@ public class PlayerController : MonoBehaviour
         //more debug logs
         Debug.Log("Player Position After Movement: " + transform.position);
         Debug.Log("Speed1" + speed);
+        Debug.Log("Fall lock" + isDecrementingLife);
+
+        //if player falls off map, lives decrement
+        //if playerPosition < 0 (below plane), lose a life
+        if (transform.position.y < 0 && !isDecrementingLife)
+        {
+            if (fallCounter < 4)
+            {
+                livesTextUpdater.decrementLives();
+                fallCounter++;
+            }
+            isDecrementingLife = true;
+        }
+
+        else if (transform.position.y >= 2.60 && isDecrementingLife)
+        {
+            //reset flag when the player is back above the map
+            isDecrementingLife = false;
+        }
+
+
     }
    
 }

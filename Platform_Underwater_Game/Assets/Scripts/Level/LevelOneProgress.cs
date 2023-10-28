@@ -19,10 +19,10 @@ public class LevelOneProgress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if all coins achieved for level one, progress
+        //if all coins achieved for level one, progress message shown
         if (coinText.text == "Coins: 10" && !completeMessageShown)
         {
-            alert.showAlert("Level One complete!");
+            alert.showAlert("Level One complete! Enter the portal to continue.");
             completeMessageShown = true;
         }
 
