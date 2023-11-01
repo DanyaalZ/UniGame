@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
+        Debug.Log("PLAYGAME");
         SceneManager.LoadSceneAsync(2);
     }
 

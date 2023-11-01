@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using TMPro;
 using System.Threading;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
