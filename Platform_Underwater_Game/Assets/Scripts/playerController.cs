@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private bool strafeRightCheck = false;
     private bool crouchCheck = false;
     private bool gravityCheck = false;
+    private float gravityControlDuration = 5f;
+    private float gravityControlTimer = 0f;
 
     //rotation variables
     //set angular velocity to a default of 0, so no rotation unless function called
@@ -187,7 +189,11 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
+
+    private bool isGravityControlActive()
+    {
+        return gravityCheck && gravityControlTimer > 0f;
+    }
 
     private void Update()
     {
@@ -197,7 +203,19 @@ public class PlayerController : MonoBehaviour
             // The cursor is locked, so the camera rotation is active
             HandleMouseInput();
         }
-        // You can add additional checks here for other input conditions if needed
+        // Update grav control timer
+        if (isGravityControlActive())
+        {
+            gravityControlTimer -= Time.deltaTime;
+
+            if (gravityControlTimer <= 0f)
+            {
+                // Disable gravity control when the timer reaches 0
+                gravityCheck = false;
+                jumpForce /= 2;
+                gravityTextUpdater.updateText(true);
+            }
+        }
     }
 
 
@@ -237,20 +255,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //the gravity strength controls
     private void OnGCheck()
     {
-        if (!gravityCheck)
+        // if user activates low gravity mode, jump stats are boosted by x2, for a 5 second period
+        if (!isGravityControlActive())
         {
             gravityCheck = true;
             gravityTextUpdater.updateText(false);
             jumpForce *= 2;
-        }
-
-        else
-        {
-            gravityCheck = false;
-            jumpForce /= 2;
-            gravityTextUpdater.updateText(true);
+            gravityControlTimer = gravityControlDuration;
         }
     }
 
