@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    //for mouse controls
+    public float sensitivity = 100f;
+
     //for physics
     private Rigidbody body;
 
@@ -33,6 +36,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 20f;
     public float jumpForce = 5f;
     private float originalSpeed;
+
+    //used for crouch
+    private CapsuleCollider playerCollider;
+    private float originalColliderHeight;
+    private Vector3 originalColliderCentre;
 
     //used for movement (WASD)
     private float XAxis;
@@ -89,6 +97,11 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
 
         mouseLook = GetComponentInChildren<MouseLook>();
+
+        //get collider for crouch, as well as the original collider height, center so player cant walk through objects
+        playerCollider = GetComponent<CapsuleCollider>();
+        originalColliderHeight = playerCollider.height;
+        originalColliderCentre = playerCollider.center;
     }
 
     //WASD to move
@@ -158,15 +171,10 @@ public class PlayerController : MonoBehaviour
         if (!crouchCheck && isGrounded)
         {
             crouchCheck = true;
-
-            //force down force
-            body.AddForce(Vector3.down * 1, ForceMode.Impulse);
-
-            //allow player to go lower by disabling collider
-            GetComponent<Collider>().enabled = false;
-
-            //make sure player doesnt fall through platforms
-            body.useGravity = false;
+            
+            //half original height seems to work
+            playerCollider.height = originalColliderHeight / 2f; 
+            playerCollider.center = new Vector3(originalColliderCentre.x, originalColliderCentre.y / 2f, originalColliderCentre.z);
         }
         else
         {
@@ -176,14 +184,9 @@ public class PlayerController : MonoBehaviour
                 //uncrouch
                 crouchCheck = false;
 
-                //put player back in previous position
-                body.AddForce(Vector3.up * 1, ForceMode.Impulse);
-
-                //reenable collider to allow for collisions
-                GetComponent<Collider>().enabled = true;
-
-                //enable gravity when standing up
-                body.useGravity = true;
+                //set collider back to normal on uncrouch
+                playerCollider.height = originalColliderHeight;
+                playerCollider.center = originalColliderCentre;
             }
         }
     }
@@ -220,25 +223,12 @@ public class PlayerController : MonoBehaviour
     // Handles mouse input to lock the mouse onto middle of screen
     private void HandleMouseInput()
     {
-        //gets input for the mouse 
-        float mouseX = Input.GetAxis("Mouse X");
+        // Get input for the mouse 
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 
-        //checks location of mouse
-        if (mouseX != 0f)
-        {
-            //allows it to rotate left
-            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
-            //movement of player based on speed of mouse move 
-            float rotationSpeed = 500f; //choose speed 
-            bodyAngleVelocity = new Vector3(0f, mouseX * rotationSpeed, 0f);
-        }
-        else
-        {
-            //stops movement if there is no mouse movement 
-            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-            bodyAngleVelocity = Vector3.zero;
-        }
+        // Apply smoothed rotation around the Y axis
+        Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
+        body.MoveRotation(body.rotation * rotationY);
     }
 
 
