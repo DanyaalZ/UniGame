@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
   
     //variables for movement (speed, x, y movement)
-    public float speed = 20f;
+    public float speed = 15f;
     public float jumpForce = 5f;
     private float originalSpeed;
 
@@ -118,18 +118,17 @@ public class PlayerController : MonoBehaviour
     //left shift to sprint
     private void OnSprint()
     {
-        //if not already sprinting, start
-        if (!sprinting)
+        // Check if the player is not crouched, not already sprinting, and not crouching
+        if (!sprinting && !crouchCheck)
         {
             sprinting = true;
             sprintTextUpdater.updateText(true);
-            //make sure speed has been reset
+            // Make sure speed has been reset
             originalSpeed = speed;
-            //increase speed 2
-            speed *= 2f; 
+            // Increase speed by x1.5
+            speed *= 1.5f;
         }
-
-        else
+        else if (!crouchCheck)
         {
             // Stop sprinting
             sprinting = false;
@@ -137,6 +136,8 @@ public class PlayerController : MonoBehaviour
             speed = originalSpeed;
         }
     }
+
+
 
     //strafe left when left arrow key pressed
     private void OnStrafeLeft()
@@ -167,29 +168,39 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCrouch()
     {
-        //check if player is already crouched and not jumping
+        // Check if player is already crouched and not jumping
         if (!crouchCheck && isGrounded)
         {
             crouchCheck = true;
-            
-            //half original height seems to work
-            playerCollider.height = originalColliderHeight / 2f; 
+
+            // Half the speed when crouching
+            speed /= 2f;
+
+            // Set sprintTextUpdater to false when crouching
+            sprintTextUpdater.updateText(false);
+
+            // Half original height seems to work
+            playerCollider.height = originalColliderHeight / 2f;
             playerCollider.center = new Vector3(originalColliderCentre.x, originalColliderCentre.y / 2f, originalColliderCentre.z);
         }
         else
         {
-            //again not allowed while jumping
-            if(isGrounded)
+            // Check if not allowed to uncrouch while jumping
+            if (isGrounded)
             {
-                //uncrouch
+                // Uncrouch
                 crouchCheck = false;
 
-                //set collider back to normal on uncrouch
+                // Restore speed to original when crouch untoggled
+                speed = originalSpeed;
+
+                // Set collider back to normal on uncrouch
                 playerCollider.height = originalColliderHeight;
                 playerCollider.center = originalColliderCentre;
             }
         }
     }
+
 
     private bool isGravityControlActive()
     {
@@ -267,9 +278,10 @@ public class PlayerController : MonoBehaviour
         }
 
         //if player touching an enemy decrement lives by one
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("trapDeathBar"))
         {
             livesTextUpdater.decrementLives();
+            transform.position = new Vector3(2.25f, 2.37f, 31.13f);
         }
     }
 
