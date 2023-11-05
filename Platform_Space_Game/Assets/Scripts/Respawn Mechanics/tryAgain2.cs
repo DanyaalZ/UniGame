@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 public class tryAgain : MonoBehaviour
 {
     public void Start()
     {
-        //allow user to click by reenabling cursor
+        // Enable the cursor to allow user interaction.
         Cursor.visible = true;
 
+        // Set the cursor lock state to none, allowing it to move freely.
         Cursor.lockState = CursorLockMode.None;
     }
 
-    // Start is called before the first frame update
+    // Load the game scene for a second attempt.
     public void secondTry()
     {
         SceneManager.LoadSceneAsync(2);
     }
-
 }

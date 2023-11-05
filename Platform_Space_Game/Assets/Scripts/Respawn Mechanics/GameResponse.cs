@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameResponse : MonoBehaviour
 {
-    public float threshold;
+    public float threshold; // The Y position threshold for triggering a response.
 
-    // Update is called once per frame
+    // Check if the Y position is below the threshold and reset if needed.
     void FixedUpdate()
     {
         if (transform.position.y < threshold)
