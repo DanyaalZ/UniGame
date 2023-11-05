@@ -32,5 +32,16 @@ public class LevelOneProgress : MonoBehaviour
             alert.showAlert("Good, remember to collect all coins or you won't progress to the next level.");
             reminderMessageShown = true;
         }
+
+         //if trying again from level 2 reset coins to what they should be
+         //get int from coins and then replace
+        string coinsString = coinText.text.Replace("Coins: ", "").Trim();
+
+        //parse into string
+        if (int.TryParse(coinsString, out int currentCoins) && currentCoins > 11)
+        {
+            //reset the number of coins to 1 as this will change when player collects first coin
+            coinText.text = "Coins: 1";
+        }
     }
 }

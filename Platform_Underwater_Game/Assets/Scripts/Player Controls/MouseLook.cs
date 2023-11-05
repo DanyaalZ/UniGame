@@ -7,8 +7,6 @@ public class MouseLook : MonoBehaviour
     public float sensitivity = 100.0f;
     public Transform playerBody; // Assign this to the transform of your player's body
 
-    private float xRotation = 0.0f;
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // Lock the cursor to the center of the screen

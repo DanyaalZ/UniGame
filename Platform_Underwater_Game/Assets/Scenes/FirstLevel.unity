@@ -1097,6 +1097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bf58966d62fa4469883f3770e27e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivity: 100
   sprintText: {fileID: 206467522}
   sprintTextUpdater: {fileID: 639434608}
   gravityText: {fileID: 418269313}
@@ -3674,6 +3675,7 @@ GameObject:
   - component: {fileID: 1915090829}
   - component: {fileID: 1915090828}
   - component: {fileID: 1915090832}
+  - component: {fileID: 1915090833}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -3774,7 +3776,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915090827}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ad132f9d87a84e4c9e7317b096d73cc, type: 3}
   m_Name: 
@@ -3782,6 +3784,20 @@ MonoBehaviour:
   scenename: SecondLevel
   coinText: {fileID: 66394298}
   alert: {fileID: 1135461429}
+--- !u!114 &1915090833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915090827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432b2d8fd6a08bc48a9f72783d0e3ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+  alert: {fileID: 0}
 --- !u!1 &1942009317
 GameObject:
   m_ObjectHideFlags: 0

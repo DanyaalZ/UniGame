@@ -6,8 +6,6 @@ using TMPro;
 
 public class gameend : MonoBehaviour
 {
-    public string scenename;
-
     //for checking amount of coins before progressing
     public TMP_Text coinText;
     public AlertWindow alert;
@@ -19,7 +17,7 @@ public class gameend : MonoBehaviour
         //if all coins achieved for level two, end game
         if (coinText.text == "Coins: 20")
         {
-            SceneManager.LoadScene(scenename);
+            SceneManager.LoadScene("MainMenu");
         }
 
         else
