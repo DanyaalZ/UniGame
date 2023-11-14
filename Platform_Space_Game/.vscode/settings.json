@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Platform_Underwater_Game.sln"
+    "dotnet.defaultSolution": "Platform_Space_Game.sln"
 }

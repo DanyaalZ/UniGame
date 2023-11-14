@@ -6,7 +6,7 @@ using TMPro;
 
 public class nextscene : MonoBehaviour
 {
-    public string scenename;
+    public string sceneName;
 
     //for checking amount of coins before progressing
     public TMP_Text coinText;
@@ -20,7 +20,7 @@ public class nextscene : MonoBehaviour
         //if all coins achieved for level one, progress
         if (coinText.text == "Coins: 10")
         {
-            SceneManager.LoadScene(scenename);
+            SceneManager.LoadScene(sceneName);
         }
 
         else
