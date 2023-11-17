@@ -4,12 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class VideoEndSceneChanger : MonoBehaviour
 {
-    public VideoPlayer videoPlayer;
     //get videoplayer, next scenename
+    public VideoPlayer videoPlayer;
     public string sceneName;
 
     void Start()
     {
+        //get video for webgl
+        videoPlayer.url = System.IO.Path.Combine (Application.streamingAssetsPath,"cutScene1.mp4"); 
         //when video ends go to end reached function
         videoPlayer.loopPointReached += EndReached;
     }

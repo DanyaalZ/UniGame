@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Controls : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Controls menu, either go back to menu, or play game from there
+    //enter scene name for cut scene (on play game)
+    public string sceneName;
     public void backToMenu()
     {
         SceneManager.LoadSceneAsync(0);
@@ -13,7 +15,7 @@ public class Controls : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadScene(sceneName);
     }
 
 }
