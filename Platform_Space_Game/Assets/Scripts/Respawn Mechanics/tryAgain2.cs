@@ -7,7 +7,7 @@ public class tryAgain : MonoBehaviour
 {
     public void Start()
     {
-        // Enable the cursor to allow user interaction.
+        // Enable the cursor to allow user interaction/input
         Cursor.visible = true;
 
         // Set the cursor lock state to none, allowing it to move freely.

@@ -209,6 +209,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Check if the cursor is locked (hidden)
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            // The cursor is locked, so the camera rotation is active
+            HandleMouseInput();
+        }
         // Update grav control timer
         if (isGravityControlActive())
         {
@@ -224,6 +230,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    // Handles mouse input to lock the mouse onto middle of screen
+    private void HandleMouseInput()
+    {
+        // Get input for the mouse 
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+
+        // Apply smoothed rotation around the Y axis
+        Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
+        body.MoveRotation(body.rotation * rotationY);
+    }
 
 
     //when space pressed to jump

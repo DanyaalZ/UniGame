@@ -20,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TryAgain.unity
     guid: 266e7978a10948b4087def5f62e11408
-  - enabled: 1
-    path: Assets/Scenes/CutScene1.unity
-    guid: 717bb7a05f8419f4985abc9b95d85aed
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c8f3c631fbd1884489c6e87799447fde, type: 2}
   m_UseUCBPForAssetBundles: 0
