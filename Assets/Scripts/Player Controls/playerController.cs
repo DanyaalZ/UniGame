@@ -166,6 +166,11 @@ public class PlayerController : MonoBehaviour
 
         strafeRightCheck = false;
     }
+
+    private void onPause()
+    {
+        SceneManager.LoadScene("PauseMenu");
+    }
     private void OnCrouch()
     {
         // Check if player is already crouched and not jumping
