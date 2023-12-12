@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float maxSpeed;
-    private float speed;
+    public float MaxSpeed;
+    private float Speed;
 
     private Collider[] hitColliders;
     private RaycastHit Hit;
 
-    public float sightRange;
-    public float detectionRange;
+    public float SightRange;
+    public float DetectionRange;
 
     public Rigidbody rb;
     public GameObject Target;
 
-    private bool seePlayer;
+    private bool SeePlayer;
+
+    public float Damage;
+    public float KOTime;
+
+    private bool CanAttack;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = maxSpeed;
+        Speed = MaxSpeed;
     }
 
     // Update is called once per frame
@@ -30,25 +35,25 @@ public class EnemyScript : MonoBehaviour
     {
         // detect if player is in range
 
-        if (!seePlayer)
+        if (!SeePlayer)
         {
-            hitColliders = Physics.OverlapSphere(transform.position, detectionRange);
+            hitColliders = Physics.OverlapSphere(transform.position, DetectionRange);
             foreach (var HitCollider in hitColliders)
             {
                 if(HitCollider.tag == "Player")
                 {
                     Target = HitCollider.gameObject;
-                    seePlayer = true;
+                    SeePlayer = true;
                 }
             }    
         }
         else
         {
-            if(Physics.Raycast(transform.position, (Target.transform.position - transform.position), out Hit, sightRange))
+            if(Physics.Raycast(transform.position, (Target.transform.position - transform.position), out Hit, SightRange))
             {
                 if(Hit.collider.tag != "Player")
                 {
-                    seePlayer = false;
+                    SeePlayer = false;
                 }
                 else
                 {
@@ -58,7 +63,7 @@ public class EnemyScript : MonoBehaviour
                     var Distance = Heading.magnitude;
                     var Direction = Heading / Distance;
 
-                    Vector3 Move = new Vector3(Direction.x * speed, 0, Direction.z * speed);
+                    Vector3 Move = new Vector3(Direction.x * Speed, 0, Direction.z * Speed);
                     rb.velocity = Move;
                     transform.forward = Move;
                 }
@@ -66,4 +71,23 @@ public class EnemyScript : MonoBehaviour
         }
         
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Player")
+        {
+            collision.collider.gameObject.GetComponent<Health>().TakeDamage(Damage);
+            StartCoroutine(AttackDelay(KOTime));
+        }
+    }
+
+    IEnumerator AttackDelay(float Delay)
+    {
+        Speed = 0;
+        CanAttack = false;
+        yield return new WaitForSeconds(Delay);
+        Speed = MaxSpeed;
+        CanAttack = true;
+    }
+
 }
