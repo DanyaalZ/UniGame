@@ -18,3 +18,4 @@ Traps - if a player hits one of these they lose a life and respawn at the beginn
 NPCS - some of these slow/block the player, others cause the player to lose a life and respawn at the beginning
 
 IF A PLAYER LOSES ALL LIVES, THEY WILL RESPAWN AT LEVEL ONE WITH EVERYTHING RESET (no matter where in the game they are).
+.
