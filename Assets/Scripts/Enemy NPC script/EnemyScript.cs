@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -23,11 +24,21 @@ public class EnemyScript : MonoBehaviour
 
     private bool CanAttack;
 
+    public float MaxHealth;
+    private float CurrentHealth;
+    public TMP_Text EnemyHealthText;
+    public Transform EnemyHealthTextPosition;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Speed = MaxSpeed;
+        CurrentHealth = MaxHealth;
+        UpdateHealthDisplay();
+
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
     }
 
     // Update is called once per frame
@@ -69,6 +80,7 @@ public class EnemyScript : MonoBehaviour
                 }
             }
         }
+        UpdateHealthDisplayPosition();
         
     }
 
@@ -88,6 +100,26 @@ public class EnemyScript : MonoBehaviour
         yield return new WaitForSeconds(Delay);
         Speed = MaxSpeed;
         CanAttack = true;
+    }
+
+    private void UpdateHealthDisplay()
+    {
+        if (EnemyHealthText != null)
+        {
+            EnemyHealthText.text = "Health: " + CurrentHealth.ToString();
+        }
+    }
+
+    private void UpdateHealthDisplayPosition()
+    {
+        if (EnemyHealthText != null)
+        {
+            // Update the position of the health text
+            EnemyHealthText.transform.position = EnemyHealthTextPosition.position;
+
+            // Make the health text always face the camera
+            EnemyHealthText.transform.rotation = Quaternion.LookRotation(EnemyHealthText.transform.position - Camera.main.transform.position);
+        }
     }
 
 }
