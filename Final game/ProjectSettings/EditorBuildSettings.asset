@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Difficulty.unity
     guid: d4f4ad8ba7f024a448b364d4efc7fb20
+  - enabled: 1
+    path: Assets/Scenes/HighScores.unity
+    guid: 95385f160c8f89149901b8fefa5a9f26
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 503d4138456328143bdb29503af0ba9a, type: 2}
   m_UseUCBPForAssetBundles: 0

@@ -10,7 +10,7 @@ public class timerText : MonoBehaviour
     public TMP_Text timer;
 
     //time left in seconds, defaulted to normal difficulty
-    private float timeRemainingSeconds = 120;
+    public float timeRemainingSeconds = 120;
 
     private bool timerRunning = false;
 

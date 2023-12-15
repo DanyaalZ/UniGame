@@ -21,7 +21,6 @@ public class MainMenu : MonoBehaviour
     //When play glame is clicked, load cut scene 1, which will in turn get to the game
     public void PlayGame()
     {
-        Debug.Log("PLAYGAME");
         SceneManager.LoadScene(sceneName);
     }
 
@@ -41,4 +40,8 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
+    public void highScores()
+    {
+        SceneManager.LoadScene("HighScores");
+    }
 }

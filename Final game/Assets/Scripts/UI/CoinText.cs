@@ -5,8 +5,8 @@ using TMPro;
 
 public class coinText : MonoBehaviour
 {
-    //initialise to 0 coins - static means it keeps track of the variable in all instances
-    public static int coinAmount = 0;
+    //static means it keeps track of the variable in all instances
+    public static int coinAmount;
 
     //variable coin text
     public TMP_Text coin;
@@ -17,6 +17,12 @@ public class coinText : MonoBehaviour
         coinAmount = 0;
     }
 
+    public int getCoinAmount()
+    {
+        Debug.Log(coinAmount);
+        return coinAmount;
+    }
+    
     public void updateText(int amount)
     {
         //increase coins by specified amount, update text
