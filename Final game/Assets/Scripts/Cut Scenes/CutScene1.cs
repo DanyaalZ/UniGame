@@ -2,17 +2,20 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
+//Script repurposed for all cutscenes
 public class VideoEndSceneChanger : MonoBehaviour
 {
     //get videoplayer, next scenename
     public VideoPlayer videoPlayer;
     public string sceneName;
 
+    public string videoName;
+
     void Start()
     {
-        //get video for webgl
-        videoPlayer.url = System.IO.Path.Combine (Application.streamingAssetsPath,"cutScene1.mp4"); 
-        //when video ends go to end reached function
+        //get video , with abstracted path for webgl
+        videoPlayer.url = System.IO.Path.Combine (Application.streamingAssetsPath, videoName); 
+        //when video ends, go to endreached function to load next scene
         videoPlayer.loopPointReached += EndReached;
     }
 

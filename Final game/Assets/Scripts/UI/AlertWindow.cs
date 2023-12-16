@@ -80,7 +80,7 @@ public class AlertWindow : MonoBehaviour
         {
              //starting position
              //if starting, on the first level, show an alert with some basic gameplay hints
-             if (playerPosition == new Vector3(2.25f, 2.60f, 31.13f))
+             if (playerPosition == new Vector3(2.25f, 2.66f, 31.13f))
              {
                  showAlert("Welcome. To progress to the next level, collect all treasure (coins). Press Enter to exit message.");
              }
@@ -90,7 +90,7 @@ public class AlertWindow : MonoBehaviour
         {
             //starting position
              //if starting, on the second level, show an alert with some new basic gameplay hints
-             if (playerPosition == new Vector3(2.25f, 2.60f, 31.13f))
+             if (playerPosition == new Vector3(2.25f, 2.66f, 31.13f))
              {
                  showAlert("Welcome to level 2 - if you walk into a trap, you will lose a life and respawn (or not), so be careful!"); 
              }
