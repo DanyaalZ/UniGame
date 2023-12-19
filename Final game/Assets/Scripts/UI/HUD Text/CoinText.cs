@@ -30,4 +30,11 @@ public class coinText : MonoBehaviour
         coin.text = ($"Coins: {coinAmount}");
 
     }
+
+
+    public void shopping(int amount)
+    {
+        coinAmount -= amount;
+        coin.text = ($"Coins: {coinAmount}");
+    }
 }
