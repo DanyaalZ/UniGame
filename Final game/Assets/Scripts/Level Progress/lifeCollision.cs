@@ -13,7 +13,7 @@ public class lifeCollision : MonoBehaviour
     //import updater script
     public LivesText healthTextUpdater;
 
-    //amount to update coins
+    //amount to update lives
     public int amountUpdate;
 
     //get gameobject for visisibility on/off (coin)
@@ -29,8 +29,7 @@ public class lifeCollision : MonoBehaviour
         //when object touched by player, remove it (set to invisible)
         coinVisibility.SetActive(false);
 
-        //increase coins by amount set - variable based on treasure type
-        healthTextUpdater.updateText(1);
-
+        //increase health by amount to update on collision with health power up
+        healthTextUpdater.incrementLives(amountUpdate);
     }
 }
