@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CutScene2.unity
     guid: a01e78ba2b7bffa4289f0e41747996d4
+  - enabled: 1
+    path: Assets/Scenes/shopScene.unity
+    guid: a26575503f4367c478a5a7f120d39ee4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 503d4138456328143bdb29503af0ba9a, type: 2}
   m_UseUCBPForAssetBundles: 0

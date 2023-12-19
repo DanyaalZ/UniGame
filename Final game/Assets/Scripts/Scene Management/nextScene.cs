@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class nextscene : MonoBehaviour
 {
@@ -18,11 +19,10 @@ public class nextscene : MonoBehaviour
     void checkIfPlayerCollectedCoins()
     {
         //if all coins achieved for level one, progress
-        if (coinText.text == "Coins: 10")
+        if (coinText.text == "Coins: 10" || coinText.text == "Coins: 20")
         {
             SceneManager.LoadScene(sceneName);
         }
-
         else
         {
             alert.showAlert("You need to collect more coins first!");

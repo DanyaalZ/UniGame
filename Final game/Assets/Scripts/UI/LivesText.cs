@@ -37,6 +37,14 @@ public class LivesText : MonoBehaviour
         healthText.text = $"Lives: {lives}";
     }
 
+
+    public void updateText(int amount)
+    {
+        //increase coins by specified amount, update text
+        lives += amount;
+        healthText.text = ($"Lives: {lives}");
+
+    }
 }
 
 
