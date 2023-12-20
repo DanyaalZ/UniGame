@@ -2,91 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float MaxSpeed;
-    private float Speed;
-
-    private Collider[] hitColliders;
-    private RaycastHit Hit;
-
-    public float SightRange;
-    public float DetectionRange;
-
-    public Rigidbody rb;
-    public GameObject Target;
-
-    private bool SeePlayer;
-
     public float Damage;
-    public float KOTime;
-
-    private bool CanAttack;
+    public float KOTime; // Knockout time after attacking
 
     public float MaxHealth;
     private float CurrentHealth;
     public TMP_Text EnemyHealthText;
     public Transform EnemyHealthTextPosition;
 
+    public NavMeshAgent agent; // Reference to NavMeshAgent
 
-    // Start is called before the first frame update
+    private bool isAttacking = false; // Flag to check if enemy is currently attacking
+
     void Start()
     {
-        Speed = MaxSpeed;
         CurrentHealth = MaxHealth;
         UpdateHealthDisplay();
-
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // detect if player is in range
-
-        if (!SeePlayer)
-        {
-            hitColliders = Physics.OverlapSphere(transform.position, DetectionRange);
-            foreach (var HitCollider in hitColliders)
-            {
-                if(HitCollider.tag == "Player")
-                {
-                    Target = HitCollider.gameObject;
-                    SeePlayer = true;
-                }
-            }    
-        }
-        else
-        {
-            if(Physics.Raycast(transform.position, (Target.transform.position - transform.position), out Hit, SightRange))
-            {
-                if(Hit.collider.tag != "Player")
-                {
-                    SeePlayer = false;
-                }
-                else
-                {
-                    // calculate direction
-
-                    var Heading = Target.transform.position - transform.position;
-                    var Distance = Heading.magnitude;
-                    var Direction = Heading / Distance;
-
-                    Vector3 Move = new Vector3(Direction.x * Speed, 0, Direction.z * Speed);
-                    rb.velocity = Move;
-                    transform.forward = Move;
-                }
-            }
-        }
         UpdateHealthDisplayPosition();
-        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.tag == "Player")
+        if (!isAttacking && collision.collider.CompareTag("Player"))
         {
             collision.collider.gameObject.GetComponent<Health>().TakeDamage(Damage);
             StartCoroutine(AttackDelay(KOTime));
@@ -95,11 +41,13 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator AttackDelay(float Delay)
     {
-        Speed = 0;
-        CanAttack = false;
+        isAttacking = true;
+        agent.isStopped = true; // Stop NavMeshAgent movement
+
         yield return new WaitForSeconds(Delay);
-        Speed = MaxSpeed;
-        CanAttack = true;
+
+        agent.isStopped = false; // Resume NavMeshAgent movement
+        isAttacking = false;
     }
 
     private void UpdateHealthDisplay()
@@ -114,12 +62,8 @@ public class EnemyScript : MonoBehaviour
     {
         if (EnemyHealthText != null)
         {
-            // Update the position of the health text
             EnemyHealthText.transform.position = EnemyHealthTextPosition.position;
-
-            // Make the health text always face the camera
             EnemyHealthText.transform.rotation = Quaternion.LookRotation(EnemyHealthText.transform.position - Camera.main.transform.position);
         }
     }
-
 }
