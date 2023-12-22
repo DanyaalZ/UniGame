@@ -1420,6 +1420,12 @@ MonoBehaviour:
   gravityTextUpdater: {fileID: 624176093}
   speed: 20
   jumpForce: 10
+  attackRange: 5
+  attackDamage: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  attackCooldown: 2
 --- !u!114 &624176088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1575,6 +1581,7 @@ MonoBehaviour:
   CurrentHealth: 0
   livesTextUpdater: {fileID: 624176088}
   healthTextUpdater: {fileID: 521502807}
+  respawnDelay: 0.5
 --- !u!1 &663341399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,7 +1838,7 @@ GameObject:
   - component: {fileID: 878580552}
   - component: {fileID: 878580558}
   - component: {fileID: 878580559}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: EnemyNPC
   m_Icon: {fileID: 0}
@@ -1880,7 +1887,8 @@ MonoBehaviour:
   Damage: 20
   KOTime: 1
   MaxHealth: 100
-  EnemyHealthText: {fileID: 0}
+  CurrentHealth: 0
+  EnemyHealthText: {fileID: 1943854832}
   EnemyHealthTextPosition: {fileID: 0}
   agent: {fileID: 0}
 --- !u!65 &878580554
@@ -1980,8 +1988,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 5
+  m_Speed: 2
+  m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 250
   m_StoppingDistance: 0
@@ -2781,7 +2789,7 @@ GameObject:
   - component: {fileID: 1943854831}
   - component: {fileID: 1943854833}
   - component: {fileID: 1943854832}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Enemy HP text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

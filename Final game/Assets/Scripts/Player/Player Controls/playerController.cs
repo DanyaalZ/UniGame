@@ -63,6 +63,18 @@ public class PlayerController : MonoBehaviour
     //Reference to MouseLook Class
     private MouseLook mouseLook;
 
+    // Player attacks
+    public float attackRange = 2.0f; // Range within which player can attack
+    public float attackDamage = 10.0f; // Damage dealt to the enemy
+    public LayerMask enemyLayer; // Layer mask to detect enemies
+
+    public float attackCooldown = 2.0f; // Cooldown time in seconds between attacks
+    private float attackCooldownTimer = 0f;
+    private bool canAttack = true;
+
+
+
+
     void Start()
     {
         //set fall counter initially to 0
@@ -227,7 +239,39 @@ public class PlayerController : MonoBehaviour
                 gravityTextUpdater.updateText(true);
             }
         }
+
+        // Handle attack cooldown timer
+        if (!canAttack)
+        {
+            attackCooldownTimer -= Time.deltaTime;
+            if (attackCooldownTimer <= 0f)
+            {
+                canAttack = true;
+            }
+        }
+
+        // Check for attack input
+        if (Mouse.current.leftButton.wasPressedThisFrame && canAttack)
+        {
+            PerformAttack();
+            canAttack = false;
+            attackCooldownTimer = attackCooldown;
+        }
     }
+
+    private void PerformAttack()
+    {
+        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+        foreach (Collider enemy in hitEnemies)
+        {
+            EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
+            if (enemyScript != null)
+            {
+                enemyScript.TakeDamage(attackDamage); // Passing the player's attack damage
+            }
+        }
+    }
+
 
 
 

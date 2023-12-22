@@ -8,26 +8,38 @@ public class EnemyScript : MonoBehaviour
 {
     public float Damage;
     public float KOTime; // Knockout time after attacking
-
     public float MaxHealth;
-    private float CurrentHealth;
-    public TMP_Text EnemyHealthText;
+    public float CurrentHealth;
+    public TMP_Text EnemyHealthText; // UI for displaying health
     public Transform EnemyHealthTextPosition;
-
     public NavMeshAgent agent; // Reference to NavMeshAgent
-
     private bool isAttacking = false; // Flag to check if enemy is currently attacking
 
     void Start()
     {
-        CurrentHealth = MaxHealth;
-        UpdateHealthDisplay();
+        CurrentHealth = MaxHealth; // Initialize current health to max health
+        UpdateHealthDisplay(); // Initial display update
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        CurrentHealth -= damage; // Reduce health by damage amount
+        UpdateHealthDisplay(); // Update display after taking damage
+        if (CurrentHealth <= 0)
+        {
+            Die(); // Check for death
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject); // Handle death (destroying the GameObject)
     }
 
     void Update()
     {
-        UpdateHealthDisplayPosition();
+        UpdateHealthDisplayPosition(); // Continuously update health display position
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -42,11 +54,9 @@ public class EnemyScript : MonoBehaviour
     IEnumerator AttackDelay(float Delay)
     {
         isAttacking = true;
-        agent.isStopped = true; // Stop NavMeshAgent movement
-
+        agent.isStopped = true; // Stop movement during attack
         yield return new WaitForSeconds(Delay);
-
-        agent.isStopped = false; // Resume NavMeshAgent movement
+        agent.isStopped = false; // Resume movement
         isAttacking = false;
     }
 
@@ -54,7 +64,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (EnemyHealthText != null)
         {
-            EnemyHealthText.text = "Health: " + CurrentHealth.ToString();
+            EnemyHealthText.text = CurrentHealth.ToString() + "%"; // Display current health
         }
     }
 

@@ -7,11 +7,12 @@ TagManager:
   - Floor
   - Platform
   - trapDeathBar
+  - EnemyNPC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 
