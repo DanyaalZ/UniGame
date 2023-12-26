@@ -6,40 +6,40 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/Menus & Settings/MainMenu.unity
     guid: 66c0ba5d336369a42bd09225be392936
   - enabled: 1
-    path: Assets/Scenes/Controls.unity
+    path: Assets/Scenes/Menus & Settings/Controls.unity
     guid: 15a3d114ababccb46b64050a9e1d49d8
   - enabled: 1
-    path: Assets/Scenes/FirstLevel.unity
+    path: Assets/Scenes/Levels/FirstLevel.unity
     guid: 309f0e3b2c2d72748867d36c0e2b54a0
   - enabled: 1
-    path: Assets/Scenes/SecondLevel.unity
+    path: Assets/Scenes/Levels/SecondLevel.unity
     guid: 93e7500be5523014db46c0a29b2b4d01
   - enabled: 1
-    path: Assets/Scenes/TryAgain.unity
+    path: Assets/Scenes/Menus & Settings/TryAgain.unity
     guid: 266e7978a10948b4087def5f62e11408
   - enabled: 1
-    path: Assets/Scenes/CutScene1.unity
+    path: Assets/Scenes/Cut Scenes/CutScene1.unity
     guid: 717bb7a05f8419f4985abc9b95d85aed
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/Levels/Tutorial.unity
     guid: fd07fa9b15e1a3f4abd3775d0dbefc55
   - enabled: 1
-    path: Assets/Scenes/Difficulty.unity
+    path: Assets/Scenes/Menus & Settings/Difficulty.unity
     guid: d4f4ad8ba7f024a448b364d4efc7fb20
   - enabled: 1
-    path: Assets/Scenes/HighScores.unity
+    path: Assets/Scenes/Menus & Settings/HighScores.unity
     guid: 95385f160c8f89149901b8fefa5a9f26
   - enabled: 1
-    path: Assets/Scenes/CutScene2.unity
+    path: Assets/Scenes/Cut Scenes/CutScene2.unity
     guid: a01e78ba2b7bffa4289f0e41747996d4
   - enabled: 1
-    path: Assets/Scenes/shopScene.unity
+    path: Assets/Scenes/shop/shopScene.unity
     guid: a26575503f4367c478a5a7f120d39ee4
   - enabled: 1
-    path: Assets/Scenes/Settings.unity
+    path: Assets/Scenes/Menus & Settings/Settings.unity
     guid: bf98e65528584b047994823220f2452f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 503d4138456328143bdb29503af0ba9a, type: 2}

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//main menu - holding different menus
+//main menu - holding different menus, play sounds when buttons clicked (UI sounds)
 public class MainMenu : MonoBehaviour
 {
     //get name of scene (in this case will be cut scene 1)
     public string sceneName;
+
+    public GameSounds gameSounds;
 
     public void Start()
     {
@@ -22,12 +24,14 @@ public class MainMenu : MonoBehaviour
     //scenename referenced above
     public void PlayGame()
     {
+        gameSounds.playSound();
         SceneManager.LoadScene(sceneName);
     }
 
     //load tutorial
     public void PlayTutorial()
     {
+        gameSounds.playSound();
         SceneManager.LoadScene("Tutorial");
     }
 

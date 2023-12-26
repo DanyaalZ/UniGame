@@ -310,7 +310,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //if player touching an enemy decrement lives by one
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("trapDeathBar"))
+        if (collision.gameObject.CompareTag("EnemyNPC") || collision.gameObject.CompareTag("trapDeathBar"))
         {
             livesTextUpdater.decrementLives();
             transform.position = new Vector3(2.25f, 2.37f, 31.13f);
