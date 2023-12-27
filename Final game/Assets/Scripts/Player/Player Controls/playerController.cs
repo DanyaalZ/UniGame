@@ -276,8 +276,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-
+    /*
+    
     //when space pressed to jump
     private void OnJump()
     {
@@ -290,7 +290,24 @@ public class PlayerController : MonoBehaviour
             body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
+    }*/
+
+    private void OnJump()
+    {
+        if (isGrounded)
+        {
+            
+
+            // Add jump force, use Impulse for an immediate effect
+            body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            // Play jump sound effect
+            gameSounds.playSound();
+            isGrounded = false; // The player leaves the ground
+        }
     }
+
+
 
     //the gravity strength controls
     private void OnGCheck()
@@ -308,18 +325,26 @@ public class PlayerController : MonoBehaviour
     //For collisions against objects
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if the collision object is a platform or the floor
+        // Add checks for floor and platform tags
         if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Platform"))
         {
-            // sets the player to grounded
             isGrounded = true;
         }
 
         //if player touching an enemy decrement lives by one
-        if (collision.gameObject.CompareTag("EnemyNPC") || collision.gameObject.CompareTag("trapDeathBar"))
+        if (collision.gameObject.CompareTag("trapDeathBar"))
         {
             livesTextUpdater.decrementLives();
             transform.position = new Vector3(2.25f, 2.37f, 31.13f);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        // When player is no longer in contact with the floor or platform
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Platform"))
+        {
+            isGrounded = false;
         }
     }
 
