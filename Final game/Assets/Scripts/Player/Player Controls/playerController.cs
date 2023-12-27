@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    //for sound
+    public GameSounds gameSounds;
+
     //for mouse controls
     public float sensitivity = 100f;
 
@@ -278,6 +281,9 @@ public class PlayerController : MonoBehaviour
     //when space pressed to jump
     private void OnJump()
     {
+        //play jump sound effect
+        gameSounds.playSound();
+        
         //Add jump force, impulse used as it simulates a jump properly
         if (isGrounded)
         {

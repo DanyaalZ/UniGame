@@ -13,6 +13,7 @@ public class coinCollision : MonoBehaviour
     //import updater script
     public coinText coinTextUpdater;
 
+
     //amount to update coins
     public int amountUpdate;
 
