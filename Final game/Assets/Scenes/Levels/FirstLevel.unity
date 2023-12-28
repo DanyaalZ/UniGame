@@ -13671,7 +13671,7 @@ GameObject:
   - component: {fileID: 1253956589}
   - component: {fileID: 1253956588}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: Player welcome light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13747,12 +13747,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253956587}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.6, y: 14.9, z: 45.1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 5.7799997, y: 13.24, z: 18.589998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1475080815}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1341585252
 GameObject:
@@ -14170,7 +14170,8 @@ Transform:
   m_LocalPosition: {x: -2.18, y: 1.66, z: 26.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1253956589}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1565966825 stripped
@@ -20986,4 +20987,3 @@ SceneRoots:
   - {fileID: 545142822}
   - {fileID: 1423755850}
   - {fileID: 1697920659}
-  - {fileID: 1253956589}

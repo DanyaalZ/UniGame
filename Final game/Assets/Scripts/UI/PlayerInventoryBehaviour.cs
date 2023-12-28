@@ -16,15 +16,17 @@ public class PlayerInventoryBehaviour : MonoBehaviour
 
     public GunInventory gunInventoryObject;
 
-    //LOCAL STORE FOR GUN INVENTORY
-    private string[] gunInventory;
+    //THIS WILL BE USED TO SHOW THE INVENTORY OF GUNS
+    private string gunList;
 
     //on start make sure inventory is not visible
     public void Start()
     {
-        //retrieve gun inventory for text
-        gunInventory = gunInventoryObject.getGuns();
-
+        //retrieve gun inventory for text - take each string from array
+        foreach (string gun in gunInventoryObject.getGuns()){
+            gunList += (gun + ", ");
+        }
+    
         inventoryOpen = false;
         inventory.SetActive(false);
     }
@@ -54,7 +56,12 @@ public class PlayerInventoryBehaviour : MonoBehaviour
     //Check if E button pressed
     void Update()
     {
-        inventoryText.text = $"Inventory: {gunInventory}";
+        //retrieve gun inventory for text - take each string from array
+        foreach (string gun in gunInventoryObject.getGuns()){
+            gunList += (gun + ", ");
+        }
+    
+        inventoryText.text = $"Inventory: {gunList}";
         InventoryPress();   
     }
 }

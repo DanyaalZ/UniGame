@@ -14,9 +14,9 @@ public class GunInventory : MonoBehaviour
     gunInventory.Add(gunName);
    }
 
-   //get guns, as a regular array to print to screen
-   public string[] getGuns()
+   //get guns, as an array to print to screen
+   public List<string> getGuns()
    {
-    return gunInventory.ToArray();
+    return gunInventory;
    }
 }
