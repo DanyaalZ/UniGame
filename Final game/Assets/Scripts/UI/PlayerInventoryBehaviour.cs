@@ -4,64 +4,68 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
+/* Defines the behaviour of the player inventory - including opening, closing, storing guns which are bought, and using said guns */
 public class PlayerInventoryBehaviour : MonoBehaviour
 {
-    //check if inventory is open to display
+    //check if inventory is open
     private bool inventoryOpen;
 
-    //to set visible/not visible
+    //inventory object to allow to set visibility (on E pressed)
     public GameObject inventory;
 
+    //text component to display inventory contents
     public TMP_Text inventoryText;
 
+    //GunInventory object holding the list of guns
     public GunInventory gunInventoryObject;
 
-    //THIS WILL BE USED TO SHOW THE INVENTORY OF GUNS
+    //string to store the list of guns for display
     private string gunList;
 
-    //on start make sure inventory is not visible
+
     public void Start()
     {
-        //retrieve gun inventory for text - take each string from array
-        foreach (string gun in gunInventoryObject.getGuns()){
-            gunList += (gun + ", ");
-        }
-    
         inventoryOpen = false;
-        inventory.SetActive(false);
+        //ensure inventory is not visible at start
+        inventory.SetActive(false); 
+        //update inventory list on start
+        UpdateInventoryList(); 
     }
 
-    //when inventory button (E) pressed, open or close inventory
+    //updates the gun list string for display
+    private void UpdateInventoryList()
+    {
+        //reset the gun list to avoid duplication
+        gunList = ""; 
+        //loop through each gun in inventory and add to the gun list
+        foreach (string gun in gunInventoryObject.getGuns())
+        {
+            gunList += (gun + ", ");
+        }
+        //update inventory text for display
+        inventoryText.text = $"Inventory: {gunList}"; 
+    }
+
+    //called to handle inventory open and close on E pressed
     public void InventoryPress()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //open
-            if (inventoryOpen == false)
-            {   
-                inventoryOpen = true;
-                inventory.SetActive(true);
-            }
+            inventoryOpen = !inventoryOpen; 
+            //set inventory visibility
+            inventory.SetActive(inventoryOpen); 
 
-            //close
-            else
-            {   
-                inventoryOpen = false;
-                inventory.SetActive(false);
+            if (inventoryOpen)
+            {
+                 //update inventory list when opened
+                UpdateInventoryList();
             }
         }
     }
 
-    //Update inventory text as it is updated
-    //Check if E button pressed
     void Update()
     {
-        //retrieve gun inventory for text - take each string from array
-        foreach (string gun in gunInventoryObject.getGuns()){
-            gunList += (gun + ", ");
-        }
-    
-        inventoryText.text = $"Inventory: {gunList}";
-        InventoryPress();   
+        //check for inventory open/close key press (E)
+        InventoryPress(); 
     }
 }
