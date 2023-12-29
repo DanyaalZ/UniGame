@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 47
+  controlID: 45
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 48
+  controlID: 46
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 49
+  controlID: 47
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -703,9 +703,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.3046265, y: 23.767855, z: 24.747974}
+    m_Target: {x: 4.7841663, y: 27.020311, z: 20.476768}
     speed: 2
-    m_Value: {x: 2.3046265, y: 23.767855, z: 24.747974}
+    m_Value: {x: 4.7841663, y: 27.020311, z: 20.476768}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -755,9 +755,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.06969369, y: 0.90751904, z: -0.16683803, w: -0.37910038}
   m_Size:
-    m_Target: 4.7087936
+    m_Target: 55.304314
     speed: 2
-    m_Value: 4.7087936
+    m_Value: 55.304314
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -895,7 +895,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f0f9ffff307200007a720000be720000e6720000
+      m_ExpandedIDs: 1205ffff5217ffffca2cffff0230ffff3848ffff284affff1666ffff608dffffb8b0ffff98b1ffff24b9ffff06bcffff9ae1fffff0f9ffff3e720000d2720000ba8000001c880000ee880000fe8c00004a8d00005497000082a80000c0a8000038a900005ca90000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1102,7 +1102,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials & Terrain/Gun Models/Bullets
+    - Assets/Scenes/Levels/TestingNPC
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1112,16 +1112,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Materials & Terrain/Gun Models/Bullets
+  - Assets/Scenes/Levels/TestingNPC
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\theal\Desktop\CompSci 2023\MultiPlatform Gaming\Game\Platform_Space_Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 06850000
-    m_LastClickedID: 34054
-    m_ExpandedIDs: 0000000056750000a2840000a8840000fa84000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 175}
+    m_SelectedIDs: 4c870000
+    m_LastClickedID: 34636
+    m_ExpandedIDs: 00000000387500005275000056750000587500009275000094750000be750000ce750000d28a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000056750000
+    m_ExpandedIDs: 0000000038750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
