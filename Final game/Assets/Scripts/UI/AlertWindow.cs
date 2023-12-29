@@ -20,6 +20,8 @@ public class AlertWindow : MonoBehaviour
     private bool firstLevel;
     private bool secondLevel;
 
+    private bool thirdLevel;
+
  
 
     void Start()
@@ -44,8 +46,11 @@ public class AlertWindow : MonoBehaviour
             secondLevel = true;
         }
 
-        //test alert
-        showAlert("Welcome.");
+        if (currentSceneName == "ThirdLevel")
+        {
+            thirdLevel = true;
+            showAlert("Captain, there will be some attacking enemies, get to the next level! Click E to see inventory. Press 1 - SMG, 2 - Shotty, 3 - AR, 4 - Melee. Click to attack.");
+        }
     }
 
     //show alert at particular location with particular text

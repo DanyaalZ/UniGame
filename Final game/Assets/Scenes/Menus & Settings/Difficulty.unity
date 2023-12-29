@@ -1141,16 +1141,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Modes:
 
-    Easy - 5 minute timer per level, guards and enemies move slower
+    Easy - 5 minute timer per level, enemies are weak, lots of
+    bullets
 
-    Normal
-    - 2 minute timer per level, guards and enemies move at a normal pace
+    Normal - 2 minute timer per level,  enemies normal, bullets normal
 
     Hard
-    - 1 minute timer per level, guards and enemies move faster
+    - 1 minute timer per level,  enemies tougher, less bullets
 
     Veteran - 30
-    second timer per level, guards and enemies move very fast'
+    second timer per level, enemies very tough, low bullets'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40775ca07344dae4dbedada3d7d7c28f, type: 2}
   m_sharedMaterial: {fileID: 6711549938476232913, guid: 40775ca07344dae4dbedada3d7d7c28f, type: 2}
@@ -1333,6 +1333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: CutScene1
+  audio: {fileID: 0}
 --- !u!1 &1319002022
 GameObject:
   m_ObjectHideFlags: 0

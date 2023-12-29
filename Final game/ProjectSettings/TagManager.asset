@@ -9,6 +9,8 @@ TagManager:
   - trapDeathBar
   - EnemyNPC
   - SMG Bullet
+  - AR Bullet
+  - Shotty Bullet
   layers:
   - Default
   - TransparentFX

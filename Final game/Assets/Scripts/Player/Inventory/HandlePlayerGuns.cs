@@ -87,5 +87,13 @@ public class HandlePlayerGuns : MonoBehaviour
                 AR.SetActive(true);
             }
         }
+
+        //melee (no guns)
+        if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Shotty.SetActive(false);
+            AR.SetActive(false);
+            SMG.SetActive(false);
+        }
     }
 }

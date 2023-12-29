@@ -700,7 +700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 307, y: 336}
+  m_AnchoredPosition: {x: 92, y: 485}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210770694
@@ -725,7 +725,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "    CONTROLS:\n- W: move forward\t\t\n- A: move left\n- S: move back\n-
     D: move right\n- G: on/off gravity\n- J/L: strafe left/right\n- C: crouch\n-
-    E: inventory\n- MOUSE: turn left/right\n- SHIFT: sprint\n- INTERACT WITH DROID:
+    E: inventory; (if player has): \nSMG - 1, Shotty - 2, AR - 3; Melee - 4 (always
+    available)\n- MOUSE: turn left/right\n- SHIFT: sprint\n- INTERACT WITH DROID:
     walk into droid\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40775ca07344dae4dbedada3d7d7c28f, type: 2}
@@ -909,6 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: CutScene1
+  audio: {fileID: 0}
 --- !u!1 &1731017114
 GameObject:
   m_ObjectHideFlags: 0

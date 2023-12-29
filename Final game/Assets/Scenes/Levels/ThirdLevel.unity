@@ -875,7 +875,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 5f9b176058917ba49a8059f6da098866, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 253672554}
   m_SourcePrefab: {fileID: 100100000, guid: 5f9b176058917ba49a8059f6da098866, type: 3}
 --- !u!4 &253672552 stripped
 Transform:
@@ -887,6 +890,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5f9b176058917ba49a8059f6da098866, type: 3}
   m_PrefabInstance: {fileID: 253672551}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &253672554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253672553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb2acc098cff0a4d8157d1a7d56ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShottyBullet: {fileID: 7442764904500888307, guid: 4a7270bd1b38bd245bffc65240e070b1, type: 3}
+  shootForce: 1000
+  difficultyModes: {fileID: 624176099}
+  bulletSpawnPoint: {fileID: 1808140965}
+  alertWindow: {fileID: 1170126040}
 --- !u!1 &275941410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2469,7 @@ GameObject:
   - component: {fileID: 624176097}
   - component: {fileID: 624176096}
   - component: {fileID: 624176098}
+  - component: {fileID: 624176099}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2839,6 +2860,18 @@ MonoBehaviour:
   Shotty: {fileID: 253672553}
   AR: {fileID: 1405844839}
   gunInventory: {fileID: 92949482}
+--- !u!114 &624176099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624176081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2bae4109fc089041a7e0502ce000d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &682673792
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,7 +4537,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: c65eeed0e623d84468374b51a0d355da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1405844840}
   m_SourcePrefab: {fileID: 100100000, guid: c65eeed0e623d84468374b51a0d355da, type: 3}
 --- !u!4 &1405844838 stripped
 Transform:
@@ -4516,6 +4552,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: c65eeed0e623d84468374b51a0d355da, type: 3}
   m_PrefabInstance: {fileID: 1405844837}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1405844840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405844839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605a472860ddb11458b150e6df997180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ARBullet: {fileID: 5574123286905191373, guid: 6e90650eaac53024280fe0a7423212f4, type: 3}
+  shootForce: 1000
+  difficultyModes: {fileID: 624176099}
+  bulletSpawnPoint: {fileID: 1808140965}
+  alertWindow: {fileID: 1170126040}
 --- !u!1 &1492211248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: a97da33f506743140bba5d7a279179ed, type: 3}
@@ -4899,6 +4952,8 @@ MonoBehaviour:
   SMGBullet: {fileID: 2349359139922444673, guid: 86a1672710d661b44b5cc4af4da78e62, type: 3}
   shootForce: 1000
   bulletSpawnPoint: {fileID: 1808140965}
+  alertWindow: {fileID: 1170126040}
+  difficultyModes: {fileID: 624176099}
 --- !u!1 &1808140965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5615228796279884883, guid: e49c7d82705eee1418700551b62707c3, type: 3}
@@ -5254,6 +5309,7 @@ GameObject:
   - component: {fileID: 1881536023}
   - component: {fileID: 1881536022}
   - component: {fileID: 1881536021}
+  - component: {fileID: 1881536024}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5359,6 +5415,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1881536024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881536019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04e3651feee09945b426bfe8318ca26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alertWindow: {fileID: 1170126038}
+  alertWindowText: {fileID: 929541177}
+  playerTransform: {fileID: 0}
 --- !u!1001 &1906867651
 PrefabInstance:
   m_ObjectHideFlags: 0

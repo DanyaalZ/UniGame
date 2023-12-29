@@ -41,4 +41,9 @@ public class DifficultyModes : MonoBehaviour
     {
         difficultyMode = "Veteran";
     }
+
+    public string getMode()
+    {
+        return difficultyMode;
+    }
 }

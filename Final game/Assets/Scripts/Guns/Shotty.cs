@@ -2,56 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMG : MonoBehaviour
+public class Shotty : MonoBehaviour
 {
-    public GameObject SMGBullet;
-    public float shootForce = 500f;
+    public GameObject ShottyBullet;
+    public float shootForce = 5000f;
+
+    public DifficultyModes difficultyModes;
 
     //where bullet shoots from
     public GameObject bulletSpawnPoint;
 
-    public AlertWindow alertWindow;
-
-    public DifficultyModes difficultyModes;
+    //number of bullets for AR (default normal)
+    private int numBullets = 50;
 
     //so out of bullets alert is not shown constantly
     private bool shownOutOfBulletAlert;
 
-    //number of bullets for SMG (default normal)
-    private int numBullets = 2000;
+    public AlertWindow alertWindow;
 
     void Start()
     {
         //increase or decrease bullets depending on difficulty mode
         if (difficultyModes.getMode() == "Easy")
         {
-            numBullets = 20000;
+            numBullets = 100;
         }
 
         if (difficultyModes.getMode() == "Hard")
         {
-            numBullets = 1000;
+            numBullets = 25;
         }
 
         if (difficultyModes.getMode() == "Veteran")
         {
-            numBullets = 200;
+            numBullets = 10;
         }
 
         //normal mode
         else
         {
-            numBullets = 2000;
+            numBullets = 50;
         }
 
     }
 
     void Update()
     {
-        //if you left click bullet is shot constantly (hold down) - provided player has bullets
-        if (Input.GetMouseButton(0) && numBullets > 0)
+        //if you left click bullet is shot one at a time - provided user has bullets
+        if (Input.GetMouseButtonDown(0) && numBullets > 0)
         {
-            GameObject projectile = Instantiate(SMGBullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+            GameObject projectile = Instantiate(ShottyBullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             //shoot forward
             rb.AddForce(transform.forward * shootForce);
@@ -63,7 +63,7 @@ public class SMG : MonoBehaviour
         {
             if (!shownOutOfBulletAlert)
             {
-                alertWindow.showAlert("Out of SMG Bullets, switch weapon if you have others");
+                alertWindow.showAlert("Out of Shotty Bullets, switch weapon if you have others");
                 shownOutOfBulletAlert = true;
             }
         } 
