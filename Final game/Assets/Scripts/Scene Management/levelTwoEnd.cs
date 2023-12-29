@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class gameend : MonoBehaviour
+public class leveltwoend : MonoBehaviour
 {
     //for checking amount of coins before progressing
     public TMP_Text coinText;
@@ -18,7 +18,7 @@ public class gameend : MonoBehaviour
             //if all coins achieved for level two, end game
             if (coinText.text == "Coins: 20")
             {
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("ThirdLevel");
             }
 
             else

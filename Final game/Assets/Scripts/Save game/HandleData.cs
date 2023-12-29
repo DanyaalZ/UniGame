@@ -30,8 +30,6 @@ public class HandleData : MonoBehaviour
             File.WriteAllText(path, json);
             return;
         }
-        string json2 = JsonConvert.SerializeObject(data);
-        File.WriteAllText(path, json2);
     }
 
     //otherwise create new json file to read from in future (in case it's been deleted for whatever reason)

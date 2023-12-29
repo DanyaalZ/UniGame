@@ -20,7 +20,7 @@ public class LevelTwoProgress : MonoBehaviour
         //at 20 coins, remind player to enter portal to finish   
         if (coinText.text == "Coins: 20" && !reminderMessageShown)
         {
-            alert.showAlert("Good job - enter the portal to end the game!");
+            alert.showAlert("Good job - those are the last coins you need to collect. You have a choice of entering the shop or the next level now...");
             reminderMessageShown = true;
         }
     }

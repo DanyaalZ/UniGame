@@ -12,6 +12,8 @@ public class Shotty : MonoBehaviour
     //where bullet shoots from
     public GameObject bulletSpawnPoint;
 
+    public GameSounds gameSounds;
+
     //number of bullets for AR (default normal)
     private int numBullets = 50;
 
@@ -51,6 +53,7 @@ public class Shotty : MonoBehaviour
         //if you left click bullet is shot one at a time - provided user has bullets
         if (Input.GetMouseButtonDown(0) && numBullets > 0)
         {
+            gameSounds.playSound();
             GameObject projectile = Instantiate(ShottyBullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             //shoot forward

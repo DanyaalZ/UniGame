@@ -12,6 +12,8 @@ public class SMG : MonoBehaviour
 
     public AlertWindow alertWindow;
 
+    public GameSounds gameSounds;
+
     public DifficultyModes difficultyModes;
 
     //so out of bullets alert is not shown constantly
@@ -51,6 +53,7 @@ public class SMG : MonoBehaviour
         //if you left click bullet is shot constantly (hold down) - provided player has bullets
         if (Input.GetMouseButton(0) && numBullets > 0)
         {
+            gameSounds.playSound();
             GameObject projectile = Instantiate(SMGBullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             //shoot forward

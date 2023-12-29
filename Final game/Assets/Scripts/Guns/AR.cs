@@ -15,6 +15,8 @@ public class AR : MonoBehaviour
     //number of bullets for AR (default normal)
     private int numBullets = 1000;
 
+    public GameSounds gameSounds;
+
     //so out of bullets alert is not shown constantly
     private bool shownOutOfBulletAlert;
 
@@ -51,6 +53,7 @@ public class AR : MonoBehaviour
         //if you left click bullet is shot constantly (hold down) - provided user has bullets
         if (Input.GetMouseButton(0) && numBullets > 0)
         {
+            gameSounds.playSound();
             GameObject projectile = Instantiate(ARBullet, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             //shoot forward
