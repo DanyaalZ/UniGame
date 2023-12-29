@@ -49,6 +49,28 @@ public class EnemyScript : MonoBehaviour
             collision.collider.gameObject.GetComponent<Health>().TakeDamage(Damage);
             StartCoroutine(AttackDelay(KOTime));
         }
+
+        //bullet damage
+        if (collision.collider.CompareTag("SMG Bullet"))
+        {
+            Debug.Log("smg");
+            TakeDamage(1);
+            UpdateHealthDisplay();
+        }
+
+        if (collision.collider.CompareTag("AR Bullet"))
+        {
+            TakeDamage(1);
+            UpdateHealthDisplay();
+        }
+
+        if (collision.collider.CompareTag("Shotty Bullet"))
+        {
+            TakeDamage(20);
+            UpdateHealthDisplay();
+        }
+
+
     }
 
     IEnumerator AttackDelay(float Delay)

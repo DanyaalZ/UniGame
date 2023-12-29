@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - trapDeathBar
   - EnemyNPC
+  - SMG Bullet
   layers:
   - Default
   - TransparentFX
