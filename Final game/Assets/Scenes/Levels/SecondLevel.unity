@@ -9954,9 +9954,9 @@ GameObject:
   - component: {fileID: 1550135862}
   - component: {fileID: 1550135861}
   - component: {fileID: 1550135860}
-  - component: {fileID: 1550135859}
   - component: {fileID: 1550135858}
   - component: {fileID: 1550135857}
+  - component: {fileID: 1550135864}
   m_Layer: 0
   m_Name: Portal 2 - shop
   m_TagString: Untagged
@@ -14759,21 +14759,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &1550135859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550135856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ad132f9d87a84e4c9e7317b096d73cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: shopScene
-  coinText: {fileID: 66394298}
-  alert: {fileID: 1135461429}
 --- !u!65 &1550135860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14861,6 +14846,21 @@ Transform:
   - {fileID: 2040649183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1550135864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550135856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad132f9d87a84e4c9e7317b096d73cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: shopScene
+  coinText: {fileID: 66394298}
+  alert: {fileID: 1135461429}
 --- !u!1 &1568107414
 GameObject:
   m_ObjectHideFlags: 0
@@ -15138,7 +15138,7 @@ GameObject:
   - component: {fileID: 1607808236}
   - component: {fileID: 1607808235}
   - component: {fileID: 1607808234}
-  - component: {fileID: 1607808233}
+  - component: {fileID: 1607808238}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -15146,20 +15146,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1607808233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607808231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 432b2d8fd6a08bc48a9f72783d0e3ab5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 66394298}
-  alert: {fileID: 1135461429}
 --- !u!65 &1607808234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15247,6 +15233,21 @@ Transform:
   - {fileID: 1313925266}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607808238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607808231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad132f9d87a84e4c9e7317b096d73cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: CutScene3_1
+  coinText: {fileID: 66394298}
+  alert: {fileID: 1135461429}
 --- !u!1 &1666162973
 GameObject:
   m_ObjectHideFlags: 0
