@@ -7,6 +7,9 @@ using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
 {
     public float Damage;
+
+    public GameSounds gameSounds;
+
     public float KOTime; // Knockout time after attacking
     public float MaxHealth;
     public float CurrentHealth;
@@ -40,6 +43,12 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         UpdateHealthDisplayPosition(); // Continuously update health display position
+
+        //death sound
+        if (CurrentHealth < 15)
+        {
+            gameSounds.playSound();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
