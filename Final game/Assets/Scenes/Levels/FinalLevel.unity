@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: c38f7186a57c89b4996d5f895a023dbe, type: 2}
   m_BuildHeightMesh: 0
@@ -7199,7 +7199,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624176081}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 18d27e1f07be94d2ba929e3d91e6d212, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -9204,7 +9204,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 325475aa76a44174686253bcaf4350dd, type: 2}
   m_BuildHeightMesh: 0
