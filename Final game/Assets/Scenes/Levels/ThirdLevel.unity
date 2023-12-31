@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19094342, g: 0.1429922, b: 0.15306157, a: 1}
+  m_IndirectSpecularColor: {r: 0.19040665, g: 0.14298895, b: 0.15245566, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -316,6 +316,18 @@ PrefabInstance:
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026717694289638226, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Acceleration
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
@@ -1270,7 +1282,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: c38f7186a57c89b4996d5f895a023dbe, type: 2}
   m_BuildHeightMesh: 0
@@ -8009,7 +8021,7 @@ GameObject:
   - component: {fileID: 746069141}
   m_Layer: 0
   m_Name: enemyplatforms (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8033,7 +8045,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 1
   m_IgnoreNavMeshAgent: 1
@@ -8041,7 +8053,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 5e67c5b12f036064088b2e322b3e8b45, type: 2}
   m_BuildHeightMesh: 0
@@ -9646,6 +9658,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1026717694289638226, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Acceleration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
       value: 
@@ -9905,7 +9929,7 @@ GameObject:
   - component: {fileID: 1707725440}
   m_Layer: 0
   m_Name: enemyplatforms
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9955,7 +9979,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 325475aa76a44174686253bcaf4350dd, type: 2}
   m_BuildHeightMesh: 0
@@ -10458,6 +10482,18 @@ PrefabInstance:
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026717694289638226, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Acceleration
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
@@ -11055,6 +11091,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1026717694289638226, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Acceleration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
       value: 
@@ -11242,6 +11290,18 @@ PrefabInstance:
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026717694289638226, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Acceleration
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
