@@ -276,22 +276,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    /*
-    
-    //when space pressed to jump
-    private void OnJump()
-    {
-        //play jump sound effect
-        gameSounds.playSound();
-        
-        //Add jump force, impulse used as it simulates a jump properly
-        if (isGrounded)
-        {
-            body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-        }
-    }*/
-
     private void OnJump()
     {
         if (isGrounded)
@@ -322,20 +306,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //For collisions against objects
+    //For collisions against trapbar
     private void OnCollisionEnter(Collision collision)
     {
-        // Add checks for floor and platform tags
-        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Platform"))
-        {
-            isGrounded = true;
-        }
-
         //if player touching an enemy decrement lives by one
         if (collision.gameObject.CompareTag("trapDeathBar"))
         {
             livesTextUpdater.decrementLives();
             transform.position = new Vector3(2.25f, 2.37f, 31.13f);
+        }
+    }
+
+    // Collision against objects/platforms
+    private void OnCollisionStay(Collision collision)
+    {
+        // Check if the collision is with a floor or platform
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Platform"))
+        {
+            // Calculate the angle of the slope
+            float slopeAngle = Vector3.Angle(Vector3.up, collision.contacts[0].normal);
+
+            // Check if the angle is less than a certain threshold
+            if (slopeAngle <= 45f)
+            {
+                isGrounded = true;
+            }
         }
     }
 
