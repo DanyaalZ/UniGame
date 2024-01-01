@@ -1370,8 +1370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_CollectObjects: 2
-  m_Size: {x: 10, y: 10, z: 10}
+  m_CollectObjects: 1
+  m_Size: {x: 38, y: 3, z: 38}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
@@ -11429,6 +11429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lava Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.57
@@ -11478,6 +11482,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
       value: 4
       objectReference: {fileID: 0}
@@ -11485,6 +11493,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 624176082}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: 'patrolPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 275941414}
     - target: {fileID: 6947117226776462628, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: gameSounds
       value: 
