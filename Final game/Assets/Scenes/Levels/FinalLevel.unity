@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c38f7186a57c89b4996d5f895a023dbe, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b026e915cff754890822b6ac6f210ae7, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &275941416
 MonoBehaviour:
@@ -6752,6 +6752,7 @@ GameObject:
   - component: {fileID: 505100867}
   - component: {fileID: 505100866}
   - component: {fileID: 505100865}
+  - component: {fileID: 505100869}
   m_Layer: 0
   m_Name: Floating Platform (1)
   m_TagString: Platform
@@ -6846,6 +6847,28 @@ Transform:
   - {fileID: 1720677336}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &505100869
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505100864}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bbe9378734e5b4c2094fb906fed313c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &521502805
 GameObject:
   m_ObjectHideFlags: 0
@@ -9761,6 +9784,10 @@ PrefabInstance:
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
       value: Lava Enemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalPosition.x
