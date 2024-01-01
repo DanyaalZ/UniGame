@@ -262,15 +262,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    // Player attacks enemy with melee
     private void PerformAttack()
     {
-        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
-        foreach (Collider enemy in hitEnemies)
+        // this ensures the attack output only comes from the centre dot
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+
+
+        // provides damage given the enemy is in range
+        if (Physics.Raycast(ray, out hit, attackRange, enemyLayer))
         {
-            EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
-            if (enemyScript != null)
+            if (hit.collider.CompareTag("EnemyNPC"))
             {
-                enemyScript.TakeDamage(attackDamage); // Passing the player's attack damage
+                EnemyScript enemyScript = hit.collider.GetComponent<EnemyScript>();
+                if (enemyScript != null)
+                {
+                    enemyScript.TakeDamage(attackDamage);
+                }
             }
         }
     }

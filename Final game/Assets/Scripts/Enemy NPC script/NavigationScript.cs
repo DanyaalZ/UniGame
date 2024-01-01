@@ -97,7 +97,7 @@ public class NavigationScript : MonoBehaviour
             return;
 
         Vector3 patrolPointPosition = patrolPoints[currentPatrolIndex].position;
-        Vector3 randomOffset = new Vector3(Random.Range(-15f, 15f), 0, Random.Range(-15f, 15f));
+        Vector3 randomOffset = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
         agent.SetDestination(patrolPointPosition + randomOffset);
 
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;

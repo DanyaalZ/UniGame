@@ -22,14 +22,14 @@ public class Enemies : MonoBehaviour
     private int easyLowerBound = 1;
     private int easyUpperBound = 2;
 
-    private int normalLowerBound = 4;
-    private int normalUpperBound = 7;
+    private int normalLowerBound = 3;
+    private int normalUpperBound = 6;
 
-    private int hardLowerBound = 10;
-    private int hardUpperBound = 13;
+    private int hardLowerBound = 7;
+    private int hardUpperBound = 10;
 
-    private int veteranLowerBound = 15;
-    private int veteranUpperBound = 20;
+    private int veteranLowerBound = 11;
+    private int veteranUpperBound = 14;
     
     void Start()
     {

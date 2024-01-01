@@ -375,9 +375,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
       value: Lava Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -425,16 +437,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 624176082}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: 'patrolPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1707725439}
     - target: {fileID: 6947117226776462628, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: gameSounds
       value: 
@@ -449,6 +469,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       insertIndex: -1
       addedObject: {fileID: 107347808}
+    - targetCorrespondingSourceObject: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 107347817}
     - targetCorrespondingSourceObject: {fileID: 6609977694819147463, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -567,6 +590,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
+--- !u!114 &107347817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107347807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1be61ece2880e45b711bc758c0c2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  difficultyModes: {fileID: 0}
+  spawnAreaCenter: {x: 0, y: 0, z: 0}
+  spawnAreaSize: {x: 0, y: 0, z: 0}
 --- !u!1 &200950948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1425,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.33333334
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c38f7186a57c89b4996d5f895a023dbe, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 79e4a94849257410e932f7347bc0d1ea, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &275941416
 MonoBehaviour:
@@ -7461,7 +7500,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  attackCooldown: 2
+  attackCooldown: 1
 --- !u!114 &624176088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9791,9 +9830,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
       value: Lava Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9841,16 +9892,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 624176082}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: 'patrolPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1707725439}
     - target: {fileID: 6947117226776462628, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: gameSounds
       value: 
@@ -10104,6 +10163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707725439}
   - component: {fileID: 1707725440}
+  - component: {fileID: 1707725441}
   m_Layer: 0
   m_Name: enemyplatforms
   m_TagString: Platform
@@ -10160,6 +10220,22 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 325475aa76a44174686253bcaf4350dd, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1707725441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707725438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1be61ece2880e45b711bc758c0c2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  difficultyModes: {fileID: 0}
+  spawnAreaCenter: {x: 0, y: 0, z: 0}
+  spawnAreaSize: {x: 0, y: 0, z: 0}
 --- !u!1001 &1707853183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10616,9 +10692,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
       value: Lava Enemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10666,16 +10754,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 624176082}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: 'patrolPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 746069142}
     - target: {fileID: 6947117226776462628, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: gameSounds
       value: 
@@ -11225,9 +11321,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
       value: Lava Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11275,16 +11383,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 624176082}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: 'patrolPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 746069142}
     - target: {fileID: 6947117226776462628, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: gameSounds
       value: 
@@ -11425,12 +11541,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
       value: Lava Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_TagString
+      value: EnemyNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 678607802747125893, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
@@ -11479,7 +11619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Radius
@@ -11487,20 +11627,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 624176082}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: SightRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: DetectionRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: patrolPoints.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: 'patrolPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 275941414}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: 'patrolPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1707725439}
+    - target: {fileID: 3285998647191283465, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: 'patrolPoints.Array.data[2]'
+      value: 
+      objectReference: {fileID: 746069142}
     - target: {fileID: 6947117226776462628, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: gameSounds
       value: 
