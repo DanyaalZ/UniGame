@@ -376,12 +376,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Size.y
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.z
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Center.y
-      value: 1
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.z
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
@@ -437,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
@@ -7782,6 +7794,7 @@ MonoBehaviour:
   Shotty: {fileID: 253672553}
   AR: {fileID: 1405844839}
   gunInventory: {fileID: 92949482}
+  playerController: {fileID: 624176087}
 --- !u!114 &624176099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9831,12 +9844,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Size.y
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.z
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Center.y
-      value: 1
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.z
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
@@ -9892,7 +9917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
@@ -10693,12 +10718,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Size.y
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.z
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Center.y
-      value: 1
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.z
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
@@ -10754,7 +10791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
@@ -11322,12 +11359,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Size.y
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.z
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Center.y
-      value: 1
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.z
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
@@ -11383,7 +11432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Acceleration
@@ -11543,11 +11592,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Size.y
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Size.z
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Center.x
@@ -11555,7 +11608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Center.y
-      value: 1
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 26156022050105593, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
+      propertyPath: m_Center.z
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 678607802746969253, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Name
@@ -11619,7 +11676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Speed
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2143753454241222664, guid: 2a7b95f357149654ca40c8e2d4a14f74, type: 3}
       propertyPath: m_Radius

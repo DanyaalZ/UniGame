@@ -20,7 +20,12 @@ public class Shopping : MonoBehaviour
     //to display coins user has
     public TMP_Text coin;
 
-   
+    // Flags to track if weapons have been bought
+    private bool hasBoughtSMG = false;
+    private bool hasBoughtShotty = false;
+    private bool hasBoughtAR = false;
+
+
     void Start()
     {
         //enable the cursor incase user coming from scene where it was not
@@ -56,41 +61,38 @@ public class Shopping : MonoBehaviour
         }
     }
 
-    //buy items
+    //buy weapons and cannot purchase the same type more than once because of flags
     public void buySMG()
     {
-        if (checkCoins(10))
+        if (!hasBoughtSMG && checkCoins(10))
         {
-            //remove amount from coins, allow it to be displayed as text
             coins.shopping(10);
-            coinAmount -=10;
-            //add item to player inventory
+            coinAmount -= 10;
             gunInventory.addGun("SMG");
+            hasBoughtSMG = true; 
         }
     }
-    
+
     public void buyShotty()
     {
-        if(checkCoins(15))
+        if (!hasBoughtShotty && checkCoins(15))
         {
-            //remove amount from coins, allow it to be displayed as text
             coins.shopping(15);
-            coinAmount -=15;
-            //add item to player inventory
+            coinAmount -= 15;
             gunInventory.addGun("Shotty");
+            hasBoughtShotty = true; 
         }
     }
-    
+
     public void buyAR()
     {
-        if(checkCoins(10))
+        if (!hasBoughtAR && checkCoins(10))
         {
-            //remove amount from coins, allow it to be displayed as text
             coins.shopping(10);
-            coinAmount -=10;
-            //add item to player inventory
+            coinAmount -= 10;
             gunInventory.addGun("AR");
+            hasBoughtAR = true; 
         }
     }
-    
+
 }

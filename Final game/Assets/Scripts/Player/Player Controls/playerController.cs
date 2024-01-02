@@ -76,6 +76,9 @@ public class PlayerController : MonoBehaviour
     private bool canAttack = true;
 
 
+    // Flag to check if a weapon is equipped
+    private bool isWeaponEquipped = false;
+
 
 
     void Start()
@@ -262,27 +265,36 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
+    public void SetWeaponEquipped(bool state)
+    {
+        isWeaponEquipped = state;
+    }
+
 
     // Player attacks enemy with melee
     private void PerformAttack()
     {
-        // this ensures the attack output only comes from the centre dot
+        // Ensure enemy attacks only come from the centre dot
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
 
-
-        // provides damage given the enemy is in range
-        if (Physics.Raycast(ray, out hit, attackRange, enemyLayer))
+        if (!isWeaponEquipped)
         {
-            if (hit.collider.CompareTag("EnemyNPC"))
+            // provides damage given the enemy is in range
+            if (Physics.Raycast(ray, out hit, attackRange, enemyLayer))
             {
-                EnemyScript enemyScript = hit.collider.GetComponent<EnemyScript>();
-                if (enemyScript != null)
+                if (hit.collider.CompareTag("EnemyNPC"))
                 {
-                    enemyScript.TakeDamage(attackDamage);
+                    EnemyScript enemyScript = hit.collider.GetComponent<EnemyScript>();
+                    if (enemyScript != null)
+                    {
+                        enemyScript.TakeDamage(attackDamage);
+                    }
                 }
             }
         }
+
     }
 
 
