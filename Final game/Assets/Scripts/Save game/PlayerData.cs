@@ -10,9 +10,6 @@ public class PlayerData
     //time remaining
     public float time;
 
-    //level name
-    public string level;
-
     //setters
     public void setCoinAmount(int amount)
     {
@@ -24,11 +21,6 @@ public class PlayerData
       time = amount;
     }
 
-    public void setLevelName(string levelName) 
-    {
-      level = levelName;
-    }
-
     //getters
     public int getCoinAmount()
     {
@@ -38,11 +30,6 @@ public class PlayerData
     public float getTimeAmount()
     {
       return time;
-    }
-
-    public string getLevelName() 
-    {
-      return level;
     }
 }
 

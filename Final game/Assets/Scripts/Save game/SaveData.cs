@@ -21,8 +21,7 @@ public class SaveData : MonoBehaviour
     public void SaveGame(string levelName)
     {
         data.setCoinAmount(coin.getCoinAmount());
-        data.setTimeAmount(timer.timeRemainingSeconds); 
-        data.setLevelName(levelName);
+        data.setTimeAmount(timer.timeRemainingSeconds);
         handleData.saveData(data);
     }
 }

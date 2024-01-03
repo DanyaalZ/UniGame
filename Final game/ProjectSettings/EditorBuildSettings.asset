@@ -56,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cut Scenes/CutScene5.unity
     guid: dc4679076d8fc4243a90178b40b2be1b
+  - enabled: 1
+    path: Assets/Scenes/Levels/FinalLevel.unity
+    guid: d51c2b05c6d08e6439423173aad97012
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 503d4138456328143bdb29503af0ba9a, type: 2}
   m_UseUCBPForAssetBundles: 0

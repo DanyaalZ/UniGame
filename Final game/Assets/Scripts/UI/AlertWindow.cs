@@ -22,6 +22,7 @@ public class AlertWindow : MonoBehaviour
 
     private bool thirdLevel;
 
+    private bool finalLevel;
  
 
     void Start()
@@ -50,6 +51,11 @@ public class AlertWindow : MonoBehaviour
         {
             thirdLevel = true;
             showAlert("Captain, there will be some attacking enemies, get to the next level! Click E to see inventory. Press 1 - SMG, 2 - Shotty, 3 - AR, 4 - Melee. Click to attack.");
+        }
+
+        if (currentSceneName == "FinalLevel")
+        {
+            showAlert("Captain, escape and get to the treasure!");
         }
     }
 
