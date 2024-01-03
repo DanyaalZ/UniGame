@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This script will set all guns to be inactive unless
+ * the player has the gun in their inventory and switches
+ * to them */
+
 public class HandlePlayerGuns : MonoBehaviour
 {
-    // Game objects for the different guns
+    //game objects for the different guns, and booleans to check
+    //if player can use them (will be based on their inventory)
     public GameObject SMG;
     public GameObject Shotty;
     public GameObject AR;
@@ -52,6 +57,8 @@ public class HandlePlayerGuns : MonoBehaviour
         // SMG
         if (SMGAllowed)
         {
+            //if user has SMG, they can click 1 to switch to it (disabling the
+            //other guns until they are pressed)
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Shotty.SetActive(false);
@@ -64,6 +71,8 @@ public class HandlePlayerGuns : MonoBehaviour
         // Shotty
         if (ShottyAllowed)
         {
+            //if user has Shotty, they can click 2 to switch to
+            //it (disabling the other guns until they are pressed)
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 SMG.SetActive(false);
@@ -76,6 +85,8 @@ public class HandlePlayerGuns : MonoBehaviour
         // AR
         if (ARAllowed)
         {
+            //if user has Shotty, they can click 3 to switch to
+            //it (disabling the other guns until they are pressed)
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 SMG.SetActive(false);

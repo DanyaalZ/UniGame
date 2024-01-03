@@ -7,9 +7,7 @@ using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
 {
     public float Damage;
-
     public GameSounds gameSounds;
-
     public float KOTime; // Knockout time after attacking
     public float MaxHealth;
     public float CurrentHealth;
@@ -53,33 +51,45 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isAttacking && collision.collider.CompareTag("Player"))
-        {
-            collision.collider.gameObject.GetComponent<Health>().TakeDamage(Damage);
-            StartCoroutine(AttackDelay(KOTime));
-        }
+        Rigidbody rb = GetComponent<Rigidbody>();
 
-        //bullet damage
-        if (collision.collider.CompareTag("SMG Bullet"))
+        // Disable kinematics when colliding with certain objects
+        // this will essentially create a knockback effect when the npc is shot by guns
+        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("SMG Bullet") || collision.collider.CompareTag("AR Bullet") || collision.collider.CompareTag("Shotty Bullet"))
         {
-            Debug.Log("smg");
-            TakeDamage(1);
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+            }
+
+            // the enemy NPC loses 10hp for every time they receive a melee attack from the player
+            if (!isAttacking && collision.collider.CompareTag("Player"))
+            {
+                collision.collider.gameObject.GetComponent<Health>().TakeDamage(Damage);
+                StartCoroutine(AttackDelay(KOTime));
+            }
+
+            //bullet damage
+            if (collision.collider.CompareTag("SMG Bullet"))
+            {
+                Debug.Log("smg");
+                TakeDamage(1);
+            }
+
+            if (collision.collider.CompareTag("AR Bullet"))
+            {
+                TakeDamage(1);
+            }
+
+            if (collision.collider.CompareTag("Shotty Bullet"))
+            {
+                TakeDamage(20);
+            }
+
             UpdateHealthDisplay();
+            // Re-enable kinematics after a short delay
+            StartCoroutine(ReenableKinematicsAfterDelay(1f)); // 1 second delay
         }
-
-        if (collision.collider.CompareTag("AR Bullet"))
-        {
-            TakeDamage(1);
-            UpdateHealthDisplay();
-        }
-
-        if (collision.collider.CompareTag("Shotty Bullet"))
-        {
-            TakeDamage(20);
-            UpdateHealthDisplay();
-        }
-
-
     }
 
     IEnumerator AttackDelay(float Delay)
@@ -89,6 +99,16 @@ public class EnemyScript : MonoBehaviour
         yield return new WaitForSeconds(Delay);
         agent.isStopped = false; // Resume movement
         isAttacking = false;
+    }
+
+    IEnumerator ReenableKinematicsAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+        }
     }
 
     private void UpdateHealthDisplay()

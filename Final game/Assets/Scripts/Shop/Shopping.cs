@@ -64,6 +64,7 @@ public class Shopping : MonoBehaviour
     //buy weapons and cannot purchase the same type more than once because of flags
     public void buySMG()
     {
+        //remove amount from coins, allow it to be displayed as text
         if (!hasBoughtSMG && checkCoins(10))
         {
             coins.shopping(10);
@@ -75,6 +76,7 @@ public class Shopping : MonoBehaviour
 
     public void buyShotty()
     {
+        //remove amount from coins, allow it to be displayed as text
         if (!hasBoughtShotty && checkCoins(15))
         {
             coins.shopping(15);
@@ -86,6 +88,7 @@ public class Shopping : MonoBehaviour
 
     public void buyAR()
     {
+        //remove amount from coins, allow it to be displayed as text
         if (!hasBoughtAR && checkCoins(10))
         {
             coins.shopping(10);
