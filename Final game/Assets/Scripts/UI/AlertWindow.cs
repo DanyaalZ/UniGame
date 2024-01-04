@@ -46,7 +46,8 @@ public class AlertWindow : MonoBehaviour
         {
             secondLevel = true;
         }
-
+        
+        //show tutorial alerts for level three and four - these will not use coordinates
         if (currentSceneName == "ThirdLevel")
         {
             thirdLevel = true;
@@ -55,7 +56,8 @@ public class AlertWindow : MonoBehaviour
 
         if (currentSceneName == "FinalLevel")
         {
-            showAlert("Captain, escape and get to the treasure!");
+            finalLevel = true;
+            showAlert("Captain, escape and get to the treasure! You do not need to defeat the enemies but it will help...");
         }
     }
 

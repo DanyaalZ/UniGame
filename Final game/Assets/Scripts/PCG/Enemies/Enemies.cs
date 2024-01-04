@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* PCG - Generate enemies in a specific area */
 public class Enemies : MonoBehaviour
@@ -30,10 +31,15 @@ public class Enemies : MonoBehaviour
 
     private int veteranLowerBound = 11;
     private int veteranUpperBound = 14;
+
+    //number of enemies player will have to defeat
+    //used for level 3, so default 4 (these are not procedurally generated), incremented with each enemy instatiated through PCG
+    public int enemyCount;
     
     void Start()
     {
-        Debug.Log(difficultyModes.getMode());
+        enemyCount = 4;
+
         //on start check difficulty mode and spawn a number of enemies within a range depending on mode
         if (difficultyModes.getMode() == "Easy")
         {
@@ -71,6 +77,8 @@ public class Enemies : MonoBehaviour
             );
             
             Instantiate(enemy, spawnPosition, Quaternion.identity);
+            //for each enemy spawned make it so player has to defeat that amount
+            enemyCount++;
         }
     }
     

@@ -16,6 +16,9 @@ public class EnemyScript : MonoBehaviour
     public NavMeshAgent agent; // Reference to NavMeshAgent
     private bool isAttacking = false; // Flag to check if enemy is currently attacking
 
+    //to change enemy count for level (3)
+    public Enemies enemy;
+
     void Start()
     {
         CurrentHealth = MaxHealth; // Initialize current health to max health
@@ -36,6 +39,7 @@ public class EnemyScript : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject); // Handle death (destroying the GameObject)
+        enemy.enemyCount--;
     }
 
     void Update()
