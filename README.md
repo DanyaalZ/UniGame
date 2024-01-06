@@ -29,10 +29,10 @@ IF A PLAYER LOSES ALL LIVES, THEY WILL RESPAWN AT LEVEL ONE WITH EVERYTHING RESE
 
 External Asset Attributions:
 
-Stone Monster - amusedART, October 2017 (used stone monster prefab and one animation - with no scripts other than for than for the animation)
-Scifi Gun Collection - Black Curtain Studio, February 2017 (used three gun models, which are 3d model prefabs, no scripts)
-Deep In Space - Breitbarth, June 2017 (the main score - BGM - for the game)
-UI Sounds - Sounds4U, September 2022 (used various UI sounds for the game)
-Robot Sphere - Bazgrizzz Demon, February 2020 (used for the droid NPC in game, prefab and one animation used - same as Stone Monster)
-LavaFlowing Shader - Moonflower Carnivore, July 2016 (used the lava material on custom terrain)
+Stone Monster - amusedART, October 2017 (used stone monster prefab and one animation - with no scripts other than for than for the animation);
+Scifi Gun Collection - Black Curtain Studio, February 2017 (used three gun models, which are 3d model prefabs, no scripts);
+Deep In Space - Breitbarth, June 2017 (the main score - BGM - for the game);
+UI Sounds - Sounds4U, September 2022 (used various UI sounds for the game);
+Robot Sphere - Bazgrizzz Demon, February 2020 (used for the droid NPC in game, prefab and one animation used - same as Stone Monster);
+LavaFlowing Shader - Moonflower Carnivore, July 2016 (used the lava material on custom terrain);
 SpaceSkies Free - PULSAR BYTES, February 2017 (used one skybox which is the main skybox in the game)
