@@ -57,7 +57,7 @@ public class AlertWindow : MonoBehaviour
         if (currentSceneName == "FinalLevel")
         {
             finalLevel = true;
-            showAlert("Captain, escape and get to the treasure! You do not need to defeat the enemies but it will help...");
+            showAlert("Captain, escape and get to the treasure! You do not need to defeat the enemies but it will help, and you must defeat the big boss...");
         }
     }
 

@@ -11,6 +11,7 @@ TagManager:
   - SMG Bullet
   - AR Bullet
   - Shotty Bullet
+  - Big Boss
   layers:
   - Default
   - TransparentFX

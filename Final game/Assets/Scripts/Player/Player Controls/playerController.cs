@@ -284,7 +284,8 @@ public class PlayerController : MonoBehaviour
             // provides damage given the enemy is in range
             if (Physics.Raycast(ray, out hit, attackRange, enemyLayer))
             {
-                if (hit.collider.CompareTag("EnemyNPC"))
+                //works for both big boss and enemy npc - player takes damage on hit
+                if (hit.collider.CompareTag("EnemyNPC")||hit.collider.CompareTag("Big Boss"))
                 {
                     EnemyScript enemyScript = hit.collider.GetComponent<EnemyScript>();
                     if (enemyScript != null)

@@ -9,7 +9,7 @@ public class PlayerData
 
     //time remaining
     public float time;
-
+    
     //setters
     public void setCoinAmount(int amount)
     {

@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 
 //When a player goes back to menu, their scores are saved if they are high scores
 public class backToMenuSave : MonoBehaviour
-{
-    public string levelName = "test";
-    
+{    
     public SaveData saveData;
     void Start()
     {
@@ -17,7 +15,7 @@ public class backToMenuSave : MonoBehaviour
     public void backToMenuandSave()
     {
         //save data (which will depend on whether high score is met in classes, and go back to main menu)
-        saveData.SaveGame(levelName);
+        saveData.SaveGame();
         SceneManager.LoadScene("MainMenu");
     }
 }

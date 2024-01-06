@@ -1,47 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-//newtonsoft package has been installed separately
 using Newtonsoft.Json;
 
-//this allows us to save, read, overwrite user game data
-//we are using json
+/* Handle saved data - this has been changed from using an external json file to use playerprefs for webgl*/
 public class HandleData : MonoBehaviour
 {
+    private string dataKey = "PlayerData";
 
- //path where data is stored as json
- private string path = Application.dataPath + "/Scripts/Save game/highscoreData.json";
- public void saveData(PlayerData data)
- {
-    //check if it already exists to we can write to it
-    if (File.Exists(path))
+    //save data - works for level 1 and 2 - if the player dies and goes back to menu or if they pass level 2 (cutscene between 2 and 3)
+    public void saveData(PlayerData data)
     {
-        string jsonData = File.ReadAllText(path);
-        //get existing data in json as a normal object (deserialised)
-        PlayerData existingData = JsonConvert.DeserializeObject<PlayerData>(jsonData);
-
-        //if highscore met and there is existing data, save
-        //must have the highest amount of coins and highest time left to be considered highscore
-        if ((existingData != null) && (existingData.getCoinAmount() < data.getCoinAmount()) && (existingData.getTimeAmount() < data.getTimeAmount()))
+        //check if player data already exists
+        if (PlayerPrefs.HasKey(dataKey))
         {
-            //overwrite existing data, changing values
-            string json = JsonConvert.SerializeObject(data);
-            File.WriteAllText(path, json);
-            return;
+            //get existing data - if it doesn't exist will be null
+            string existingJsonData = PlayerPrefs.GetString(dataKey);
+            //convert to player data object (we have created this in another script)
+            PlayerData existingData = JsonConvert.DeserializeObject<PlayerData>(existingJsonData);
+
+            //check if new data meets high score conditions given that there is existing data already
+            //conditions: coin amount higher or the same, time lower
+            if (existingData != null && existingData.getCoinAmount() >= data.getCoinAmount() && existingData.getTimeAmount() >= data.getTimeAmount())
+            {
+                //create new json text to set new high score 
+                string newJson = JsonConvert.SerializeObject(data);
+                PlayerPrefs.SetString(dataKey, newJson);
+                PlayerPrefs.Save();
+            }
+        }
+        else
+        {
+            //if no data exists, save new data - we dont need to check conditions as there is nothing there already
+            string newJson = JsonConvert.SerializeObject(data);
+            PlayerPrefs.SetString(dataKey, newJson);
+            PlayerPrefs.Save();
         }
     }
 
-    //otherwise create new json file to read from in future (in case it's been deleted for whatever reason)
-    string newJson = JsonConvert.SerializeObject(data);
-    File.WriteAllText(path, newJson);
-   }
+    //load data, used in view high scores scene for main menu
+    public string loadData()
+    {
+        //if there is existing data return it to display
+        if (PlayerPrefs.HasKey(dataKey))
+        {
+            return PlayerPrefs.GetString(dataKey);
+        }
 
-   //load json and deserialise data to return as string
-   public string loadData()
-   {
-       string jsonData = File.ReadAllText(path);
-       PlayerData existingData = JsonConvert.DeserializeObject<PlayerData>(jsonData);
-       return jsonData;
-   }
+        else
+        {
+            return null;
+        }
+    }
 }

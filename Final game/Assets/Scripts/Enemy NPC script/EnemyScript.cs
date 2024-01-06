@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.AI;
 
+/* Script defining enemy behaviour in the game, including navmesh, health, and attack */
+
 public class EnemyScript : MonoBehaviour
 {
     public float Damage;
@@ -21,7 +23,8 @@ public class EnemyScript : MonoBehaviour
 
     void Start()
     {
-        CurrentHealth = MaxHealth; // Initialize current health to max health
+        // Initialise current health to max health
+        CurrentHealth = MaxHealth; 
         UpdateHealthDisplay(); // Initial display update
         agent = GetComponent<NavMeshAgent>();
     }

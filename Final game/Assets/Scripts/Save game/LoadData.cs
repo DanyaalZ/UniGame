@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/* For displaying highscores on main menu */
 public class LoadData : MonoBehaviour
 {
     public TMP_Text highScoresText;
