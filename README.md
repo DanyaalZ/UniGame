@@ -35,4 +35,8 @@ Deep In Space - Breitbarth, June 2017 (the main score - BGM - for the game);
 UI Sounds - Sounds4U, September 2022 (used various UI sounds for the game);
 Robot Sphere - Bazgrizzz Demon, February 2020 (used for the droid NPC in game, prefab and one animation used - same as Stone Monster);
 LavaFlowing Shader - Moonflower Carnivore, July 2016 (used the lava material on custom terrain);
-SpaceSkies Free - PULSAR BYTES, February 2017 (used one skybox which is the main skybox in the game)
+SpaceSkies Free - PULSAR BYTES, February 2017 (used one skybox which is the main skybox in the game);
+Moon.png used in texture - https://imgur.com/a/aw3nD (free to use)
+Space background used in cutscenes - https://www.youtube.com/watch?v=7aSuxS-XT3M (reuse permitted)
+Music used in cutscenes - https://www.youtube.com/watch?v=Ct44WnxlPC0 (licensed under Creative Commons free use)
+Microsoft ClipChamp (free software) used to edit videos (cutscenes)
